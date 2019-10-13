@@ -5,12 +5,12 @@
 <hr>
 
 ### Group Name and Project Title:
-- [Insert your group number]
-- [Insert your project title]
+- [6]
+- [In Da Beat]
 
 ### Group Members:
 
-- [Insert your full name, Cornell email, GitHub handle]
+- [Katie Donahoe, kd459@cornell.edu, kdonahoe]
 - [Insert your full name, Cornell email, GitHub handle]
 - [Insert your full name, Cornell email, GitHub handle]
 
