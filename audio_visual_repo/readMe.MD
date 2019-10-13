@@ -1,1 +1,1 @@
-Katie's personal repo for her audio visual work
+Katie's personal repo for audio visual work
