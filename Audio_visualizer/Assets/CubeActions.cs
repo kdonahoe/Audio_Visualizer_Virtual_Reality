@@ -30,6 +30,9 @@ public class CubeActions : MonoBehaviour
         Debug.Log("Music/" + Properties.selectedSong);
         Debug.Log(lyric);
         audio.clip = lyric;
+
+        songLyrics = convertToText();
+        audio.Play();
     }
     void OnMouseUp()
     {

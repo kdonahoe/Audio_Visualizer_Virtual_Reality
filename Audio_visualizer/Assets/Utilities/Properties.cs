@@ -8,5 +8,5 @@ public static class Properties
     public static string genius_search_url = "https://api.genius.com/search?q=";
     public static string[] songsList = {"Killshot"};
     public static string[] lyricsFile = { "Killshot" };
-    public static string selectedSong = "";
+    public static string selectedSong = "Killshot";
 }

@@ -1,19 +1,15 @@
 ﻿<Properties StartupConfiguration="{F37D19D0-680E-7C2D-81B1-4DC610D6EF7E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CubeActions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Oculus/VR/Scripts/Util/OVRSystemPerfMetrics.cs">
     <Files>
-      <File FileName="Assets/Utilities/Properties.cs" Line="12" Column="2" />
-      <File FileName="Assets/CubeActions.cs" Line="32" Column="6" />
+      <File FileName="Assets/Utilities/Properties.cs" Line="11" Column="50" />
+      <File FileName="Assets/CubeActions.cs" Line="35" Column="22" />
+      <File FileName="Assets/Oculus/VR/Scripts/OVRHeadsetEmulator.cs" Line="61" Column="1" />
+      <File FileName="Assets/Oculus/VR/Scripts/Util/OVRSystemPerfMetrics.cs" Line="268" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Audio_visualizer" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Assets" expanded="True">
-                <Node name="CubeActions.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="Audio_visualizer" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

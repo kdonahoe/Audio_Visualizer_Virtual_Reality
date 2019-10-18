@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{F37D19D0-680E-7C2D-81B1-4DC610D6EF7E}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CubeActions.cs">
+    <Files>
+      <File FileName="Assets/Utilities/Properties.cs" Line="12" Column="2" />
+      <File FileName="Assets/CubeActions.cs" Line="32" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Audio_visualizer" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="CubeActions.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d7210dca-3246-4ba7-a025-997a60093fff" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
