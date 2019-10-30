@@ -6,7 +6,7 @@ using UnityEngine;
 public class fft : MonoBehaviour
 {
     AudioSource audioSource;
-    int numCubes = 256;
+    int numCubes = 128;
     public float[] spectrum = new float[512];
 
     public GameObject cubePrefab;
@@ -15,8 +15,9 @@ public class fft : MonoBehaviour
 
     public Color[] colors = new Color[512];
 
+    public float circleSize;
     public int preFabScale;
-    int numRotation = 0;
+    int counter = 0;
 
     public GameObject particlePrefab;
     public int particleCount;
@@ -41,19 +42,19 @@ public class fft : MonoBehaviour
             if (numCubes == 512)
             {
                 this.transform.eulerAngles = new Vector3(0, -0.703f * i, 0);
-                cubeInstance.transform.position = Vector3.forward * 100;
+                cubeInstance.transform.position = Vector3.forward * 100 * circleSize;
             }
             if (numCubes == 256)
             {
                 this.transform.eulerAngles = new Vector3(0, -3.2f * i, 0);
-                cubeInstance.transform.position = Vector3.forward * 30;
+                cubeInstance.transform.position = Vector3.forward * 30 * circleSize;
             }
-            if(numCubes == 128)
+            if (numCubes == 128)
             {
-                this.transform.eulerAngles = new Vector3(0, -4.5f * i, 0);
-                cubeInstance.transform.position = Vector3.forward * 12;
+                this.transform.eulerAngles = new Vector3(0, -5.5f * i, 0);
+                cubeInstance.transform.position = Vector3.forward * 12 * circleSize;
             }
-            
+
             cubes[i] = cubeInstance;
         }
     }
@@ -61,37 +62,39 @@ public class fft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
-        float average = getAvg(spectrum);
-        print(average);
-        for (int j = 0; j < numCubes; j++)
-        {  
-               cubes[j].transform.localScale = new Vector3(cubes[j].transform.localScale.x, (spectrum[j] * 1000* scaler), cubes[j].transform.localScale.z);
- 
-               if(j>0)
+        if (counter % 5 == 0)
+        {
+            audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+            float average = getAvg(spectrum);
+            print(average);
+            for (int j = 0; j < numCubes; j++)
+            {
+                cubes[j].transform.localScale = new Vector3(cubes[j].transform.localScale.x, (spectrum[j] * 1000 * scaler), cubes[j].transform.localScale.z);
+
+                if (j > 0)
                 {
                     var cubeRenderer = cubes[j].GetComponent<Renderer>();
                     cubeRenderer.material.SetColor("_Color", colors[j]);
-                }   
+                }
 
-               if(spectrum[j] >preFabScale*average)
+                if (spectrum[j] > preFabScale * average)
                 {
-                for (int i = 0; i < particleCount; i++)
-                {
-                    float scale = Random.Range(particleMinSize, particleMaxSize);
-                    particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
-                    Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
+                    for (int i = 0; i < particleCount; i++)
+                    {
+                        float scale = Random.Range(particleMinSize, particleMaxSize);
+                        particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
+                        Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
+                    }
                 }
             }
-
-
         }
-        numRotation++;
+        counter++;
+        //    numRotation++;
 
-        if(numRotation % 60 == 0) //every 20 times
-        {
-           // rotateColors(colors);
-        }
+        //  if(numRotation % 60 == 0) //every 20 times
+        //   {
+        // rotateColors(colors);
+        // }
     }
 
     float getAvg(float[] spectrum)
