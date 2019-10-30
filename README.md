@@ -11,7 +11,7 @@
 ### Group Members:
 
 - [Katie Donahoe, kd459@cornell.edu, kdonahoe]
-- [Insert your full name, Cornell email, GitHub handle]
+- [Nathan Cinnamond, nc532@cornell.edu, njcinnamond]
 - [Insert your full name, Cornell email, GitHub handle]
 
 
