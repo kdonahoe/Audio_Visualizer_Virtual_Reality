@@ -672,7 +672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.8, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281459204
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 89.700195, y: 20.125, z: 90.58887, w: 24.442188}
+  m_margin: {x: 93.725784, y: 20.125, z: 92.166794, w: 24.442188}
   m_textInfo:
     textComponent: {fileID: 1281459204}
     characterCount: 6
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   - 0
   cubePrefab: {fileID: 129616, guid: 55141490e6ade7d4f9c7305f94a39943, type: 3}
   ground: {fileID: 979735927}
-  scaler: 0.2
+  scaler: 1.5
   colors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
@@ -2015,7 +2015,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  circleSize: 0.25
+  circleSize: 0.35
   preFabScale: 4
   particlePrefab: {fileID: 5755162785260126720, guid: f142f0c4279ba77409d3393c5d536497,
     type: 3}

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Oct 30 23:12:11 EDT 2019
+#Wed Oct 30 23:20:55 EDT 2019
 210.set=ASSET
 2.path=bin/Data/Managed/UnityEngine.InputLegacyModule.dll
 14.set=ASSET

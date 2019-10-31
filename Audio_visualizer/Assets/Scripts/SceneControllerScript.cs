@@ -83,7 +83,7 @@ public class SceneControllerScript : MonoBehaviour
         canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - Camera.main.transform.position);
         //canvas.transform.LookAt(Camera.main.transform, Vector3.up);
         //canvas.transform.rotation.eulerAngles = new Vector3(0, 0, 0);
-        Vector3 newV = new Vector3(Camera.main.transform.position.x + 20f * Camera.main.transform.forward.x, 2f, Camera.main.transform.position.z + 20f * Camera.main.transform.forward.z);
+        Vector3 newV = new Vector3(Camera.main.transform.position.x + 15f * Camera.main.transform.forward.x, 1.5f, Camera.main.transform.position.z + 15f * Camera.main.transform.forward.z);
         canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, newV, ref velocity, 1f * Time.deltaTime);
         //canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, Camera.main.transform.position + 20f * Camera.main.transform.forward + new Vector3(-Camera.main.transform.position.x, 2f,0), ref velocity, 1f * Time.deltaTime);
         if (counter % 5 == 0)
