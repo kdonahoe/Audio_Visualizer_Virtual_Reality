@@ -6,7 +6,7 @@ using UnityEngine;
 public class fft : MonoBehaviour
 {
     AudioSource audioSource;
-    int numCubes = 128;
+    int numCubes = 256;
     public float[] spectrum = new float[512];
 
     public GameObject cubePrefab;
