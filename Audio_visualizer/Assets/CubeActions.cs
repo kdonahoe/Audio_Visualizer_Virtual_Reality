@@ -13,16 +13,16 @@ using System.Globalization;
 
 public class CubeActions : MonoBehaviour
 {
-    public GameObject music;
     AudioSource audio;
     WebUtils webUtils;
     List<LyricLine> songLyrics;
     public Text lyrics;
+	public GameObject sceneController;
 
     // Start is called before the first frame update
     void Start()
     {
-        audio = music.GetComponent<AudioSource>();
+        audio = sceneController.GetComponent<AudioSource>();
         webUtils = new WebUtils();
 
         AudioClip lyric = Resources.Load<AudioClip>("Music/" + Properties.selectedSong);
