@@ -63,14 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVRManagerEditor 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVRManagerEditor.cs" />
-    <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayEditor 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayEditor.cs" />
     <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlaySrcRectEditor.shader" />
-    <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayDestRectEditor 2.shader" />
-    <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlaySrcRectEditor 2.shader" />
-    <None Include="Assets\Oculus\VR\Scripts\Editor\Oculus.VR.Scripts.Editor 2.asmdef" />
     <None Include="Assets\Oculus\VR\Scripts\Editor\Oculus.VR.Scripts.Editor.asmdef" />
     <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayDestRectEditor.shader" />
     <Reference Include="UnityEditor.UI">

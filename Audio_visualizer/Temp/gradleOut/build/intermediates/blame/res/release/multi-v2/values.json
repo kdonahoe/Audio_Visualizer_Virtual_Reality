@@ -1,0 +1,62 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Temp/gradleOut/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Temp/gradleOut/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,105",
+                        "endColumns": "51,65",
+                        "endOffsets": "102,168"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,109",
+                        "endColumns": "53,67",
+                        "endOffsets": "104,172"
+                    }
+                },
+                {
+                    "source": "/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Temp/gradleOut/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "5,2,7",
+                        "startColumns": "0,0,0",
+                        "startOffsets": "190,53,288",
+                        "endLines": "6,4,10",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "286,188,513"
+                    },
+                    "to": {
+                        "startLines": "5,7,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "221,321,459",
+                        "endLines": "6,9,13",
+                        "endColumns": "8,8,8",
+                        "endOffsets": "316,454,681"
+                    }
+                },
+                {
+                    "source": "/Users/phil/.gradle/caches/transforms-2/files-2.1/3d40e63deb69ab4aab0083d2b20d31c4/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "2",
+                        "startOffsets": "53",
+                        "endColumns": "41",
+                        "endOffsets": "92"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "177",
+                        "endColumns": "43",
+                        "endOffsets": "216"
+                    }
+                }
+            ]
+        }
+    ]
+}
