@@ -63,59 +63,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\AudioImportPostProcessor 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\AudioImportPostProcessor.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\AudioManagerInspector 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\AudioManagerInspector.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\MinMaxPropertyDrawer 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\MinMaxPropertyDrawer.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\MixerSnapshotPropertyDrawer 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\MixerSnapshotPropertyDrawer.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\OSPPropsPropertyDrawer 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\OSPPropsPropertyDrawer.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\SoundFXPropertyDrawer 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\SoundFXPropertyDrawer.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\SoundFXRefPropertyDrawer 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\Editor\SoundFXRefPropertyDrawer.cs" />
-    <Compile Include="Assets\Oculus\AudioManager\Scripts\Utils\Editor\DrawerInspectorNote 2.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Utils\Editor\DrawerInspectorNote.cs" />
-    <Compile Include="Assets\Oculus\LipSync\Editor\OVRLipSyncBuildPostProcessor 2.cs" />
     <Compile Include="Assets\Oculus\LipSync\Editor\OVRLipSyncBuildPostProcessor.cs" />
-    <Compile Include="Assets\Oculus\LipSync\Editor\OVRLipSyncContextMorphTargetEditor 2.cs" />
     <Compile Include="Assets\Oculus\LipSync\Editor\OVRLipSyncContextMorphTargetEditor.cs" />
-    <Compile Include="Assets\Oculus\LipSync\Editor\OVRLipSyncTool 2.cs" />
     <Compile Include="Assets\Oculus\LipSync\Editor\OVRLipSyncTool.cs" />
-    <Compile Include="Assets\Oculus\LipSync\Editor\OVRNamedArrayPropertyDrawer 2.cs" />
     <Compile Include="Assets\Oculus\LipSync\Editor\OVRNamedArrayPropertyDrawer.cs" />
-    <Compile Include="Assets\Oculus\Platform\Editor\GUIHelper 2.cs" />
     <Compile Include="Assets\Oculus\Platform\Editor\GUIHelper.cs" />
-    <Compile Include="Assets\Oculus\Platform\Editor\OculusPlatformSettingsEditor 2.cs" />
     <Compile Include="Assets\Oculus\Platform\Editor\OculusPlatformSettingsEditor.cs" />
-    <Compile Include="Assets\Oculus\Platform\Editor\OculusPluginUpdaterStub 2.cs" />
     <Compile Include="Assets\Oculus\Platform\Editor\OculusPluginUpdaterStub.cs" />
-    <Compile Include="Assets\Oculus\Platform\Editor\OculusStandalonePlatformResponse 2.cs" />
     <Compile Include="Assets\Oculus\Platform\Editor\OculusStandalonePlatformResponse.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\Editor\TeleportTransitionWarpInspector 2.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\Editor\TeleportTransitionWarpInspector.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\AndroidVideoEditorUtil 2.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\AndroidVideoEditorUtil.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Editor\BuildAssetPackages 2.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Editor\BuildAssetPackages.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Editor\OculusSampleFrameworkUtil 2.cs" />
-    <Compile Include="Assets\Oculus\SampleFramework\Editor\OculusSampleFrameworkUtil.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdater 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdater.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdaterStub 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdaterStub.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioSourceEditor 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioSourceEditor.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationGeometryEditor 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationGeometryEditor.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationMaterialEditor 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationMaterialEditor.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationSerializationManager 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationSerializationManager.cs" />
-    <Compile Include="Assets\Oculus\Spatializer\editor\ONSPReflectionCustomGUI 2.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPReflectionCustomGUI.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
@@ -149,6 +118,18 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

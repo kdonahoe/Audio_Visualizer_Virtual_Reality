@@ -5,14 +5,16 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class SceneControllerScript : MonoBehaviour
 {
+    public GameObject canvas;
     AudioSource audioSource;
-    int numCubes = 128;
+    int numCubes = 256;
     public float[] spectrum = new float[512];
 
     public GameObject cubePrefab, ground;
@@ -31,18 +33,20 @@ public class SceneControllerScript : MonoBehaviour
     public float particleMaxSize;
     private bool alreadyExploded;
     List<LyricLine> songLyrics;
-    public Text lyrics;
+    public TextMeshProUGUI lyrics;
+    Vector3 offset;
 
 
     void Start()
     {
+        offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
 		AudioClip lyric = Resources.Load<AudioClip>("Music/" + Properties.selectedSong);
 		audioSource.clip = lyric;
         songLyrics = convertToText();
-        //audioSource.Play();
+        audioSource.Play();
 
-		for (int i = 0; i < numCubes; i++)
+        for (int i = 0; i < numCubes; i++)
         {
             GameObject cubeInstance = (GameObject)Instantiate(cubePrefab);
             cubeInstance.transform.parent = this.transform;
@@ -72,10 +76,12 @@ public class SceneControllerScript : MonoBehaviour
             
         }
     }
-
+    Vector3 velocity;
     // Update is called once per frame
     void Update()
     {
+        canvas.transform.rotation = Camera.main.transform.rotation;
+        canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, Camera.main.transform.position + 20f * Camera.main.transform.forward + new Vector3(0,2f,0), ref velocity, 1f * Time.deltaTime);
         if (counter % 5 == 0)
         {
             audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);

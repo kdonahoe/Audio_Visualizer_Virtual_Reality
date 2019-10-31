@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{F37D19D0-680E-7C2D-81B1-4DC610D6EF7E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerFollow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneControllerScript.cs">
     <Files>
       <File FileName="Assets/Utilities/Properties.cs" Line="9" Column="50" />
       <File FileName="Assets/CubeActions.cs" Line="87" Column="6" />
-      <File FileName="Assets/Scripts/RemyAnimController.cs" Line="16" Column="11" />
-      <File FileName="Assets/Scripts/SceneControllerScript.cs" Line="70" Column="159" />
+      <File FileName="Assets/Scripts/RemyAnimController.cs" Line="31" Column="1" />
+      <File FileName="Assets/Scripts/SceneControllerScript.cs" Line="43" Column="28" />
       <File FileName="Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" Line="1" Column="1" />
       <File FileName="Assets/PlayerFollow.cs" Line="1" Column="1" />
     </Files>
@@ -14,13 +14,14 @@
           <Node name="Audio_visualizer" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Assets" expanded="True">
-                <Node name="Scripts" expanded="True" />
+                <Node name="Scripts" expanded="True">
+                  <Node name="SceneControllerScript.cs" selected="True" />
+                </Node>
                 <Node name="TextMesh Pro" expanded="True">
                   <Node name="Examples &amp; Extras" expanded="True">
                     <Node name="Scripts" expanded="True" />
                   </Node>
                 </Node>
-                <Node name="PlayerFollow.cs" selected="True" />
               </Node>
             </Node>
           </Node>
