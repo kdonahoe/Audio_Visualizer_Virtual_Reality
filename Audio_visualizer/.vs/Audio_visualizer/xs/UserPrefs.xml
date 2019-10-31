@@ -1,10 +1,11 @@
-﻿<Properties StartupConfiguration="{F37D19D0-680E-7C2D-81B1-4DC610D6EF7E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Oculus/VR/Scripts/Util/OVRSystemPerfMetrics.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Oculus/VR/Oculus.VR 2.asmdef">
     <Files>
-      <File FileName="Assets/Utilities/Properties.cs" Line="11" Column="50" />
-      <File FileName="Assets/CubeActions.cs" Line="35" Column="22" />
-      <File FileName="Assets/Oculus/VR/Scripts/OVRHeadsetEmulator.cs" Line="61" Column="1" />
+      <File FileName="Assets/Utilities/Properties.cs" Line="9" Column="51" />
+      <File FileName="Assets/CubeActions.cs" />
+      <File FileName="Assets/Oculus/VR/Scripts/OVRHeadsetEmulator.cs" />
       <File FileName="Assets/Oculus/VR/Scripts/Util/OVRSystemPerfMetrics.cs" Line="224" Column="46" />
+      <File FileName="Assets/Oculus/VR/Oculus.VR 2.asmdef" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,8 +16,14 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Assembly-CSharp.csproj</String>
+    <String>Assembly-CSharp-Editor.csproj</String>
+    <String>Oculus.VR.Scripts.Editor.csproj</String>
+    <String>Oculus.VR.Editor.csproj</String>
+    <String>Oculus.VR.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d7210dca-3246-4ba7-a025-997a60093fff" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

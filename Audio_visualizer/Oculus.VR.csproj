@@ -63,85 +63,210 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCameraComposition 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCameraComposition.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRComposition 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRComposition 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRComposition.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCompositionUtil 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCompositionUtil 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRCompositionUtil.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRDirectComposition 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRDirectComposition 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRDirectComposition.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRExternalComposition 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRExternalComposition.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRSandwichComposition 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRSandwichComposition 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Composition\OVRSandwichComposition.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRBoundary 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRBoundary.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRCameraRig 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRCameraRig.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRCommon 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRCommon 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRCommon.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRDebugHeadController 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRDebugHeadController 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRDebugHeadController.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRDisplay 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRDisplay 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRDisplay.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRHaptics 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRHaptics 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRHaptics.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRHapticsClip 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRHapticsClip 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRHapticsClip.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRHeadsetEmulator 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRHeadsetEmulator.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRInput 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRInput 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRInput.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRLayerAttribute 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRLayerAttribute 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRLayerAttribute.cs" />
-    <Compile Include="Assets\Oculus\VR\Scripts\OVRLint.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRManager 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRManager 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRManager.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRMixedReality 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRMixedReality 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRMixedReality.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVROnCompleteListener 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVROnCompleteListener 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVROnCompleteListener.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVROverlay 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVROverlay 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVROverlay.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRPlatformMenu 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRPlatformMenu 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRPlatformMenu.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRPlugin 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRPlugin 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRPlugin.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRProfile 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRProfile 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRProfile.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRTracker 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRTracker 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRTracker.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRAudioSourceTest 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRAudioSourceTest.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRChromaticAberration 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRChromaticAberration 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRChromaticAberration.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRControllerHelper 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRControllerHelper.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRCubemapCapture 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRCubemapCapture 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRCubemapCapture.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRCursor 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRCursor.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRDebugInfo 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRDebugInfo 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRDebugInfo.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGazePointer 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGazePointer 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGazePointer.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGearVrControllerTest 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGearVrControllerTest 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGearVrControllerTest.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGrabbable 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGrabbable 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGrabbable.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGrabber 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGrabber 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGrabber.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGridCube 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGridCube 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRGridCube.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRInputModule 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRInputModule 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRInputModule.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRMixedRealityCaptureSettings 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRMixedRealityCaptureSettings 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRMixedRealityCaptureSettings.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRModeParms 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRModeParms 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRModeParms.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRMonoscopic 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRMonoscopic 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRMonoscopic.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRNetwork 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRNetwork.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPhysicsRaycaster 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPhysicsRaycaster 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPhysicsRaycaster.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPlayerController 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPlayerController 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPlayerController.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPointerEventData 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPointerEventData 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRPointerEventData.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRProfiler 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRProfiler 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRProfiler.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRProgressIndicator 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRProgressIndicator 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRProgressIndicator.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRRaycaster 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRRaycaster 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRRaycaster.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRRecord 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRRecord 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRRecord.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRResetOrientation 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRResetOrientation 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRResetOrientation.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRSceneSampleController 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRSceneSampleController 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRSceneSampleController.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRScreenFade 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRScreenFade 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRScreenFade.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRSystemPerfMetrics 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRSystemPerfMetrics.cs" />
-    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRTrackedRemote.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRWaitCursor 2.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRWaitCursor 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRWaitCursor.cs" />
+    <Compile Include="Assets\Oculus\VR\ThirdParty\openvr_api 2.cs" />
     <Compile Include="Assets\Oculus\VR\ThirdParty\openvr_api.cs" />
+    <Compile Include="Assets\Oculus\VR\ThirdParty\SimpleJSON 2.cs" />
     <Compile Include="Assets\Oculus\VR\ThirdParty\SimpleJSON.cs" />
+    <Compile Include="Assets\Oculus\VR\ThirdParty\SimpleJSONUnity 2.cs" />
     <Compile Include="Assets\Oculus\VR\ThirdParty\SimpleJSONUnity.cs" />
+    <None Include="Assets\Oculus\VR\Resources\Underlay Transparent Occluder 2.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRChromaKey 2.cginc" />
+    <None Include="Assets\Oculus\VR\Resources\Unlit Transparent Color 2.shader" />
+    <None Include="Assets\Oculus\VR\Shaders\OVRColorRampAlpha 2.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRUnlitTransparent.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Cubemap Blit 2.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRChromaKey.cginc" />
+    <None Include="Assets\Oculus\VR\Resources\Underlay Transparent Occluder 3.shader" />
     <None Include="Assets\Oculus\VR\LICENSE.txt" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRUnlitTransparent 2.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRUnlit 2.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Underlay Impostor 3.shader" />
     <None Include="Assets\Oculus\VR\Shaders\OVRColorRampAlpha.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRUnlit 3.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Texture2D Blit 3.shader" />
     <None Include="Assets\Oculus\VR\Resources\Cubemap Blit.shader" />
+    <None Include="Assets\Oculus\VR\LICENSE 2.txt" />
     <None Include="Assets\Oculus\VR\NOTICE.txt" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRUnlit.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Unlit Transparent Color 3.shader" />
+    <None Include="Assets\Oculus\VR\Oculus.VR 2.asmdef" />
     <None Include="Assets\Oculus\VR\Shaders\Unlit Crosshair.shader" />
+    <None Include="Assets\Oculus\VR\Shaders\Unlit Crosshair 3.shader" />
     <None Include="Assets\Oculus\VR\Resources\Unlit Transparent Color.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRClipPlane 3.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRClipPlane 2.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrameLit.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRUnlitTransparent 3.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Underlay Impostor 2.shader" />
     <None Include="Assets\Oculus\VR\Resources\Underlay Transparent Occluder.shader" />
     <None Include="Assets\Oculus\VR\Resources\Texture2D Blit.shader" />
+    <None Include="Assets\Oculus\VR\Shaders\Unlit Crosshair 2.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRChromaKey 3.cginc" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrame 3.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrameLit 2.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Cubemap Blit 3.shader" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrame.shader" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrameLit 3.shader" />
     <None Include="Assets\Oculus\VR\Oculus.VR.asmdef" />
+    <None Include="Assets\Oculus\VR\Plugins\placeholder 3.txt" />
     <None Include="Assets\Oculus\VR\Resources\OVRMRClipPlane.shader" />
+    <None Include="Assets\Oculus\VR\Shaders\OVRColorRampAlpha 3.shader" />
+    <None Include="Assets\Oculus\VR\NOTICE 2.txt" />
+    <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrame 2.shader" />
     <None Include="Assets\Oculus\VR\Resources\Underlay Impostor.shader" />
+    <None Include="Assets\Oculus\VR\Resources\Texture2D Blit 2.shader" />
     <None Include="Assets\Oculus\VR\Plugins\placeholder.txt" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -338,14 +463,14 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack.CssSelectors">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack.CssSelectors">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

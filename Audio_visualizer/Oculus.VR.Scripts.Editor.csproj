@@ -63,16 +63,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVRManagerEditor 3.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVRManagerEditor.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayEditor 2.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayEditor.cs" />
     <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlaySrcRectEditor.shader" />
+    <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayDestRectEditor 2.shader" />
+    <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlaySrcRectEditor 2.shader" />
+    <None Include="Assets\Oculus\VR\Scripts\Editor\Oculus.VR.Scripts.Editor 2.asmdef" />
     <None Include="Assets\Oculus\VR\Scripts\Editor\Oculus.VR.Scripts.Editor.asmdef" />
     <None Include="Assets\Oculus\VR\Scripts\Editor\OVROverlayDestRectEditor.shader" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
@@ -281,14 +286,14 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack.CssSelectors">
+      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack.CssSelectors">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/Audio_visualizer/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
