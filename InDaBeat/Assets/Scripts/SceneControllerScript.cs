@@ -24,7 +24,7 @@ public class SceneControllerScript : MonoBehaviour
     public Color[] colors = new Color[512];
 
     public float circleSize;
-    public int preFabScale;
+    public int amountSparks;
     int counter = 0;
 
     public GameObject particlePrefab;
@@ -39,15 +39,16 @@ public class SceneControllerScript : MonoBehaviour
     public float lyricsHeight;
 
     public Material snowMaterial;
+    public Material happyMaterial;
 
-    bool snow;
+    string sceneString;
 
 
 
 
     void Start()
     {
-        snow = true;
+        sceneString = "autumn";
 
 
         offset = canvas.transform.position - Camera.main.transform.position;
@@ -64,12 +65,43 @@ public class SceneControllerScript : MonoBehaviour
 
             var cubeRenderer = cubeInstance.GetComponent<Renderer>();
 
-            if(snow)
+            if(sceneString == "snow")
             {
                 colors[i] = UnityEngine.Random.ColorHSV(0f, 0.1f, 0f, 0.1f, 0.5f, 1f);
                 cubeRenderer.material.SetColor("_Color", colors[i]);
                 Renderer rend = ground.GetComponent<Renderer>();
                 rend.material = snowMaterial;
+                particleMinSize = 0.01f;
+                particleMaxSize = 0.2f;
+                amountSparks = 2;
+            }
+            else if (sceneString == "autumn")
+            {
+                colors[i] = UnityEngine.Random.ColorHSV(0f, 0.1f, 1f, 1f, 0.5f, 1f);
+                cubeRenderer.material.SetColor("_Color", colors[i]);
+                Renderer rend = ground.GetComponent<Renderer>();
+                //rend.material = autumnMaterial;
+            }
+            else if (sceneString == "green")
+            {
+                colors[i] = UnityEngine.Random.ColorHSV(0.2f, 0.4f, 1f, 1f, 0.5f, 1f);
+                cubeRenderer.material.SetColor("_Color", colors[i]);
+                Renderer rend = ground.GetComponent<Renderer>();
+                //rend.material = autumnMaterial;
+            }
+            else if (sceneString == "blue")
+            {
+                colors[i] = UnityEngine.Random.ColorHSV(0.5f, 0.7f, 1f, 1f, 0.5f, 1f);
+                cubeRenderer.material.SetColor("_Color", colors[i]);
+                Renderer rend = ground.GetComponent<Renderer>();
+                //rend.material = autumnMaterial;
+            }
+            else if (sceneString == "pink")
+            {
+                colors[i] = UnityEngine.Random.ColorHSV(0.8f, 0.9f, 1f, 1f, 0.5f, 1f);
+                cubeRenderer.material.SetColor("_Color", colors[i]);
+                Renderer rend = ground.GetComponent<Renderer>();
+                //rend.material = autumnMaterial;
             }
             else
             {
@@ -130,7 +162,7 @@ public class SceneControllerScript : MonoBehaviour
                     cubeRenderer.material.SetColor("_Color", colors[j]);
                 }
 
-                if (spectrum[j] > preFabScale * average)
+                if (spectrum[j] > amountSparks * average)
                 {
                     for (int i = 0; i < particleCount; i++)
                     {
