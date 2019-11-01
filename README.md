@@ -12,6 +12,6 @@
 
 - [Katie Donahoe, kd459@cornell.edu, kdonahoe]
 - [Nathan Cinnamond, nc532@cornell.edu, njcinnamond]
-- [Insert your full name, Cornell email, GitHub handle]
+- [Phil Asmar, pye4@cornell.edu, philasmar]
 
 
