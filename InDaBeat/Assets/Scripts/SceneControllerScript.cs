@@ -38,8 +38,18 @@ public class SceneControllerScript : MonoBehaviour
     public float lyricsDepth;
     public float lyricsHeight;
 
+    public Material snowMaterial;
+
+    bool snow;
+
+
+
+
     void Start()
     {
+        snow = true;
+
+
         offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
 		AudioClip lyric = Resources.Load<AudioClip>("Music/" + Properties.selectedSong);
@@ -54,8 +64,19 @@ public class SceneControllerScript : MonoBehaviour
 
             var cubeRenderer = cubeInstance.GetComponent<Renderer>();
 
-            colors[i] = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-            cubeRenderer.material.SetColor("_Color", colors[i]);
+            if(snow)
+            {
+                colors[i] = UnityEngine.Random.ColorHSV(0f, 0.1f, 0f, 0.1f, 0.5f, 1f);
+                cubeRenderer.material.SetColor("_Color", colors[i]);
+                Renderer rend = ground.GetComponent<Renderer>();
+                rend.material = snowMaterial;
+            }
+            else
+            {
+                colors[i] = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+                cubeRenderer.material.SetColor("_Color", colors[i]);
+            }
+           
 
             if (numCubes == 512)
             {

@@ -9,15 +9,25 @@ public class SparkBehavior : MonoBehaviour
     public float shrinkSmooth;
     private Rigidbody rb;
 
+    bool snow;
     // Start is called before the first frame update
     void Start()
     {
+        snow = true;
+
         rb = GetComponent<Rigidbody>();
         rb.velocity = Random.rotation * startVelocity;
         Invoke("Die", delay);
 
         var particleRenderer = transform.GetComponent<Renderer>();
-        particleRenderer.material.SetColor("_Color", Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
+        if(snow)
+        {
+            particleRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 0.1f, 0f, 0.1f, 0.5f, 1f));
+        }
+        else
+        {
+            particleRenderer.material.SetColor("_Color", Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
+        }
     }
 
     private void Update()
