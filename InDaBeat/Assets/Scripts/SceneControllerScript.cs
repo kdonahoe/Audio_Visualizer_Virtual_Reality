@@ -27,7 +27,7 @@ public class SceneControllerScript : MonoBehaviour
     public int preFabScale;
     int counter = 0;
 
-    public GameObject particlePrefab;
+    public GameObject particlePrefab, circleCenter;
     public int particleCount;
     public float particleMinSize;
     public float particleMaxSize;
@@ -72,7 +72,7 @@ public class SceneControllerScript : MonoBehaviour
                 this.transform.eulerAngles = new Vector3(0, -5.5f * i, 0);
                 cubeInstance.transform.position = Vector3.forward * 12 * circleSize;
             }
-            cubeInstance.transform.position = new Vector3(cubeInstance.transform.position.x, ground.transform.position.y + (ground.transform.localScale.y / 2), cubeInstance.transform.position.z);
+            cubeInstance.transform.position = new Vector3(cubeInstance.transform.position.x, ground.transform.position.y, cubeInstance.transform.position.z);
             cubes[i] = cubeInstance;
             
         }
@@ -81,17 +81,16 @@ public class SceneControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        circleCenter.transform.rotation = Camera.main.transform.rotation;
         if(OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote) && OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
         {
-
             OVRInput.Update();
             OVRInput.SetControllerVibration(60, 60, OVRInput.Controller.RTouch);
         }
         canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - Camera.main.transform.position);
         //canvas.transform.LookAt(Camera.main.transform, Vector3.up);
         //canvas.transform.rotation.eulerAngles = new Vector3(0, 0, 0);
-        Vector3 newV = new Vector3(Camera.main.transform.position.x + lyricsDepth * Camera.main.transform.forward.x, lyricsHeight, Camera.main.transform.position.z + lyricsDepth * Camera.main.transform.forward.z);
+        Vector3 newV = new Vector3(circleCenter.transform.position.x + lyricsDepth * circleCenter.transform.forward.x, lyricsHeight, circleCenter.transform.position.z + lyricsDepth * circleCenter.transform.forward.z);
         canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, newV, ref velocity, 0.5f * Time.deltaTime);
         //canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, Camera.main.transform.position + 20f * Camera.main.transform.forward + new Vector3(-Camera.main.transform.position.x, 2f,0), ref velocity, 1f * Time.deltaTime);
         if (counter % 5 == 0)
