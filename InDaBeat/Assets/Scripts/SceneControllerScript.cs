@@ -27,7 +27,7 @@ public class SceneControllerScript : MonoBehaviour
     public int preFabScale;
     int counter = 0;
 
-    public GameObject particlePrefab, menuPanel, circleCenter;
+    public GameObject particlePrefab, menuPanel, circleCenter, playButton, pauseButton, albumArt, songName;
     public int particleCount;
     public float particleMinSize;
     public float particleMaxSize;
@@ -42,10 +42,7 @@ public class SceneControllerScript : MonoBehaviour
     {
         offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
-		AudioClip lyric = Resources.Load<AudioClip>("Music/" + Properties.selectedSong);
-		audioSource.clip = lyric;
-        songLyrics = convertToText();
-        audioSource.Play();
+        LoadSong(Properties.selectedSong);
 
         for (int i = 0; i < numCubes; i++)
         {
@@ -129,23 +126,23 @@ public class SceneControllerScript : MonoBehaviour
         //   {
         // rotateColors(colors);
         // }
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonUp(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-                Interact(hit);
-        }
-#else
-        if (Input.touchCount > 0)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-                Interact(hit);
-        }
-#endif
+//#if UNITY_EDITOR
+//        if (Input.GetMouseButtonUp(0))
+//        {
+//            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+//            RaycastHit hit;
+//            if (Physics.Raycast(ray, out hit))
+//                Interact(hit);
+//        }
+//#else
+//        if (Input.touchCount > 0)
+//        {
+//            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+//            RaycastHit hit;
+//            if (Physics.Raycast(ray, out hit))
+//                Interact(hit);
+//        }
+//#endif
         if (songLyrics != null)
         {
             lyrics.text = songLyrics.First().text;
@@ -157,22 +154,22 @@ public class SceneControllerScript : MonoBehaviour
         }
     }
 
-    void Interact(RaycastHit hit)
-    {
-        if (hit.collider.CompareTag("User"))
-        {
-            //songLyrics = webUtils.getTopLyrics(Properties.songsList[0]);
-            songLyrics = convertToText();
-            if (audioSource.isPlaying)
-            {
-                audioSource.Pause();
-            }
-            else
-            {
-                audioSource.Play();
-            }
-        }
-    }
+    //void Interact(RaycastHit hit)
+    //{
+    //    if (hit.collider.CompareTag("User"))
+    //    {
+    //        //songLyrics = webUtils.getTopLyrics(Properties.songsList[0]);
+    //        songLyrics = convertToText();
+    //        if (audioSource.isPlaying)
+    //        {
+    //            audioSource.Pause();
+    //        }
+    //        else
+    //        {
+    //            audioSource.Play();
+    //        }
+    //    }
+    //}
 
     float getAvg(float[] spectrum)
     {
@@ -194,9 +191,9 @@ public class SceneControllerScript : MonoBehaviour
         colors[numCubes - 1] = temp;
     }
 
-    List<LyricLine> convertToText()
+    List<LyricLine> getLyrics(string song)
     {
-        TextAsset lyric = Resources.Load<TextAsset>("Lyrics/" + Properties.lyricsFile[0]);
+        TextAsset lyric = Resources.Load<TextAsset>("Lyrics/" + song);
         //StreamReader inp_stm = new StreamReader(Application.dataPath + "/Lyrics/" + Properties.lyricsFile[0] + ".lrc");
         StreamReader inp_stm = new StreamReader(new MemoryStream(lyric.bytes));
         List<LyricLine> inp_ln = new List<LyricLine>();
@@ -224,5 +221,43 @@ public class SceneControllerScript : MonoBehaviour
     {
         Regex rgx = new Regex(@"^\[[0-9]{2}:[0-9]{2}\.[0-9]{2}\].*$");
         return rgx.IsMatch(str);
+    }
+
+    public void playMusic()
+    {
+        audioSource.Play();
+        playButton.SetActive(false);
+        pauseButton.SetActive(true);
+    }
+
+    public void pauseMusic()
+    {
+        audioSource.Pause();
+        pauseButton.SetActive(false);
+        playButton.SetActive(true);
+    }
+
+    public void rewindMusic()
+    {
+        audioSource.time -= 10;
+    }
+
+    public void fastForwardMusic()
+    {
+        audioSource.time += 10;
+    }
+
+    void LoadSong(string song)
+    {
+        AudioClip lyric = Resources.Load<AudioClip>("Music/" + song);
+        audioSource.clip = lyric;
+        songLyrics = getLyrics(song);
+        albumArt.GetComponent<RawImage>().texture = Resources.Load<Texture2D>("AlbumArt/" + song);
+        string[] songArr = song.Split('-');
+        if (songArr.Length > 1)
+            songName.GetComponent<TextMeshProUGUI>().text = songArr[0].Trim() + Environment.NewLine + songArr[1].Trim();
+        else
+            songName.GetComponent<TextMeshProUGUI>().text = songArr[0];
+
     }
 }
