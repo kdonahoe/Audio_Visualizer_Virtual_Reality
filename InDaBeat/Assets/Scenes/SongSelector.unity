@@ -1000,20 +1000,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 11400020, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
---- !u!1 &1051635919 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1125068011842588, guid: ce816f2e6abb0504092c23ed9b970dfd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1051635918}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1051635920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1660603843503870, guid: ce816f2e6abb0504092c23ed9b970dfd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1051635918}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1308572595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,9 +1049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4169f2b960ca74b82d99f80be73f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCtrl: {fileID: 1051635920}
-  rightCtrl: {fileID: 1051635919}
-  songDisplay: {fileID: 722686433}
+  leftCtrl: {fileID: 0}
+  rightCtrl: {fileID: 0}
+  songDisplay: {fileID: 0}
   songList: []
 --- !u!1 &1372789606
 GameObject:
@@ -1320,10 +1312,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03be441042adb0648aac402be9e2d957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songDisplay: {fileID: 722686433}
+  songDisplay: {fileID: 0}
   songList: []
-  prevButton: {fileID: 518702721}
-  nextButton: {fileID: 1497441922}
+  prevButton: {fileID: 0}
+  nextButton: {fileID: 0}
   selectButton: {fileID: 0}
 --- !u!1 &1812142551
 GameObject:
