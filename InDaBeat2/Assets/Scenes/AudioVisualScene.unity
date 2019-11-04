@@ -1013,7 +1013,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3.8e-44, y: 1e-45, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3504,7 +3504,7 @@ MonoBehaviour:
   - 0
   cubePrefab: {fileID: 129616, guid: 55141490e6ade7d4f9c7305f94a39943, type: 3}
   ground: {fileID: 1755397238}
-  cubeScaler: 2
+  cubeScaler: 3
   colors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
@@ -4019,7 +4019,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   circleSize: 0.1
-  preFabScale: 4
+  preFabScale: 100
   particlePrefab: {fileID: 5755162785260126720, guid: f142f0c4279ba77409d3393c5d536497,
     type: 3}
   menuPanel: {fileID: 1233021501}

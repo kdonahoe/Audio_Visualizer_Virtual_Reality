@@ -26,11 +26,10 @@ public class SparkBehavior : MonoBehaviour
     private void Update()
     {
         //scale localtozero
-        Vector3.Lerp(transform.localScale, Vector3.zero, shrinkSmooth);
+        Vector3.Lerp(transform.localScale, Vector3.zero, shrinkSmooth); color = sceneControl.GetComponent<SceneControllerScript>().currentColor;
 
-        color = sceneControl.GetComponent<SceneControllerScript>().currentColor;
-
-        if(color != "default")
+        /*
+        if (color != "default")
         {
             if (color == "white")
             {
@@ -64,7 +63,9 @@ public class SparkBehavior : MonoBehaviour
                 particleRenderer.material.SetColor("_Color", Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
             }
         }
-        
+        */
+
+
     }
     void Die()
     {

@@ -259,35 +259,55 @@ public class SceneControllerScript : MonoBehaviour
             Renderer rend = ground.GetComponent<Renderer>();
             particleMinSize = 0.01f;
             particleMaxSize = 0.2f;
-            preFabScale = 2;
+            //preFabScale = 2;
             currentColor = "white";
         }
     }
 
     public void setOrange()
     {
-
+        foreach (GameObject cube in cubeList)
+        {
+            var cubeRenderer = cube.GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 0.1f, 1f, 1f, 0.5f, 1f));
+        }
     }
 
     public void setGreen()
     {
-
+        foreach (GameObject cube in cubeList)
+        {
+            var cubeRenderer = cube.GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0.2f, 0.4f, 1f, 1f, 0.5f, 1f));
+        }
     }
 
     public void setBlue()
     {
-
+        foreach (GameObject cube in cubeList)
+        {
+            var cubeRenderer = cube.GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0.5f, 0.7f, 1f, 1f, 0.5f, 1f));
+        }
     }
 
     public void setPink()
     {
-
+        foreach (GameObject cube in cubeList)
+        {
+            var cubeRenderer = cube.GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0.8f, 0.9f, 1f, 1f, 0.5f, 1f));
+        }
     }
 
     public void setMulti()
     {
-
-    }
+        foreach (GameObject cube in cubeList)
+        {
+            var cubeRenderer = cube.GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
+        }
+     }
 
     void LoadSong(string song)
     {
