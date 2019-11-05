@@ -108,6 +108,9 @@ public class SceneControllerScript : MonoBehaviour
 
         Vector3 newV2 = new Vector3(Camera.main.transform.position.x + menuDepth * Camera.main.transform.forward.x, ground.transform.position.y + menuHeight, Camera.main.transform.position.z + menuDepth * Camera.main.transform.forward.z);
         menuPanel.transform.position = Vector3.SmoothDamp(menuPanel.transform.position, newV2, ref velocity, 1f * Time.deltaTime);
+
+        Vector3 newV3 = new Vector3(Camera.main.transform.position.x + menuDepth * Camera.main.transform.forward.x, ground.transform.position.y + menuHeight + 0.5f, Camera.main.transform.position.z + menuDepth * Camera.main.transform.forward.z);
+        pauseMenu.transform.position = Vector3.SmoothDamp(pauseMenu.transform.position, newV3, ref velocity, 1f * Time.deltaTime);
         //canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, Camera.main.transform.position + 20f * Camera.main.transform.forward + new Vector3(-Camera.main.transform.position.x, 2f,0), ref velocity, 1f * Time.deltaTime);
         if (counter % 5 == 0)
         {
