@@ -18,6 +18,7 @@ public class SceneControllerScript : MonoBehaviour
     public float[] spectrum = new float[512];
 
     public GameObject cubePrefab, ground;
+    public GameObject snow;
     GameObject[] cubes = new GameObject[512];
     public float cubeScaler;
 
@@ -44,7 +45,7 @@ public class SceneControllerScript : MonoBehaviour
     public string currentColor;
     void Start()
     {
-        currentColor = "default";
+        currentColor = "multi";
         offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
         LoadSong(Properties.selectedSong);
@@ -114,9 +115,19 @@ public class SceneControllerScript : MonoBehaviour
                 {
                     for (int i = 0; i < particleCount; i++)
                     {
-                        float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                        particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
-                        Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
+                        if(currentColor == "multi")
+                        {
+                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                            particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
+                            Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                            snow.transform.localScale = new Vector3(scale, scale, scale);
+                            Instantiate(snow, cubes[j].transform.position, Quaternion.identity);
+                        }
+                        
                     }
                 }
             }
@@ -235,7 +246,7 @@ public class SceneControllerScript : MonoBehaviour
     public void pauseMusic()
     {
         audioSource.Pause();
-        preFabScale = 100;
+       // preFabScale = 100;
         pauseButton.SetActive(false);
         playButton.SetActive(true);
     }
@@ -252,20 +263,21 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setWhite()
     {
-        foreach(GameObject cube in cubeList)
+        currentColor = "white";
+        foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
-            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 0.1f, 0f, 0.1f, 0.5f, 1f));
-            Renderer rend = ground.GetComponent<Renderer>();
-            particleMinSize = 0.01f;
-            particleMaxSize = 0.2f;
-            //preFabScale = 2;
-            currentColor = "white";
+            cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 0.02f, 0f, 0.1f, 0.5f, 1f));
+            Renderer rend = ground.GetComponent<Renderer>();          
         }
+        preFabScale = 1;
+        particleMinSize = 0.02f;
+        particleMaxSize = 0.05f;
     }
 
     public void setOrange()
     {
+        currentColor = "orange";
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
@@ -275,6 +287,7 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setGreen()
     {
+        currentColor = "green";
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
@@ -284,6 +297,7 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setBlue()
     {
+        currentColor = "blue";
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
@@ -291,8 +305,10 @@ public class SceneControllerScript : MonoBehaviour
         }
     }
 
+
     public void setPink()
     {
+        currentColor = "pink";
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
@@ -302,6 +318,7 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setMulti()
     {
+        currentColor = "multi";
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
