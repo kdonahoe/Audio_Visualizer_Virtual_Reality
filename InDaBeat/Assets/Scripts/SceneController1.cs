@@ -87,9 +87,6 @@ public class SceneController1 : MonoBehaviour
 
     void initiateSongList()
     {
-        songList.Add("All Star - Smash Mouth");
-        songList.Add("Hey Jude - The Beatles");
-        songList.Add("Piano Man - Billy Joel");
-        songList.Add("Rocket Man - Elton John");
+        songList.AddRange(Properties.availableSongs);
     }
 }

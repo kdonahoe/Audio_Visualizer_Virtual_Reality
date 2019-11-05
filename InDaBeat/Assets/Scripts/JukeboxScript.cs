@@ -60,14 +60,12 @@ public class JukeboxScript : MonoBehaviour
 
     void selectSongDisplay()
     {
+        Properties.selectedSong = songName.text;
         SceneManager.LoadScene("AudioVisualScene");
     }
 
     void initiateSongList()
     {
-        songList.Add("All Star - Smash Mouth");
-        songList.Add("Hey Jude - The Beatles");
-        songList.Add("Piano Man - Billy Joel");
-        songList.Add("Rocket Man - Elton John");
+        songList.AddRange(Properties.availableSongs);
     }
 }
