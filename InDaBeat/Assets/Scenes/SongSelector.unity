@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftCtrl: {fileID: 0}
   rightCtrl: {fileID: 0}
-  songDisplay: {fileID: 0}
+  songDisplay: {fileID: 722686433}
   songList: []
 --- !u!1 &1372789606
 GameObject:
