@@ -8,10 +8,12 @@ using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class SceneControllerScript : MonoBehaviour
 {
+    public OVRInput.Controller controller;
     public GameObject canvas;
     AudioSource audioSource;
     int numCubes = 256;
@@ -30,6 +32,7 @@ public class SceneControllerScript : MonoBehaviour
 
     public GameObject particlePrefab, menuPanel, circleCenter, playButton, pauseButton, albumArt, songName;
     public GameObject blueSpark, pinkSpark, orangeSpark, greenSpark;
+    public GameObject pauseMenu, resumeButton, backJukeBoxButton;
     public int particleCount;
     public float particleMinSize;
     public float particleMaxSize;
@@ -91,6 +94,11 @@ public class SceneControllerScript : MonoBehaviour
         {
             OVRInput.Update();
             OVRInput.SetControllerVibration(60, 60, OVRInput.Controller.RTouch);
+        }
+        if (OVRInput.Get(OVRInput.Button.One))
+        {
+            audioSource.Pause();
+            pauseMenu.SetActive(true);
         }
         canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - Camera.main.transform.position);
         //canvas.transform.LookAt(Camera.main.transform, Vector3.up);
@@ -382,5 +390,16 @@ public class SceneControllerScript : MonoBehaviour
         else
             songName.GetComponent<TextMeshProUGUI>().text = songArr[0];
 
+    }
+
+    public void ResumeSong()
+    {
+        audioSource.Play();
+        pauseMenu.SetActive(false);
+    }
+
+    public void backToJukeBox()
+    {
+        SceneManager.LoadScene("SongSelector");
     }
 }
