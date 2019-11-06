@@ -83,6 +83,7 @@
     <Compile Include="Assets\Oculus\VR\Editor\OVRSystemProfilerPanel.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\PathHelper.cs" />
     <None Include="Assets\Oculus\VR\Editor\AndroidManifest.OVRSubmission.xml" />
+    <None Include="Assets\Oculus\VR\Editor\network_sec_config 2.xml" />
     <None Include="Assets\Oculus\VR\Editor\network_sec_config.xml" />
     <None Include="Assets\Oculus\VR\Editor\Oculus.VR.Editor.asmdef" />
     <Reference Include="UnityEditor.UI">

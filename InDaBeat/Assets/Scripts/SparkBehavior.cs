@@ -9,7 +9,6 @@ public class SparkBehavior : MonoBehaviour
     public float shrinkSmooth;
     private Rigidbody rb;
 
- //   GameObject sceneControl;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +17,18 @@ public class SparkBehavior : MonoBehaviour
         Invoke("Die", delay);
 
         var particleRenderer = transform.GetComponent<Renderer>();
-        particleRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
+        particleRenderer.material.SetColor("_Color", Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
     }
 
     private void Update()
     {
         //scale localtozero
         Vector3.Lerp(transform.localScale, Vector3.zero, shrinkSmooth);
+
+        if(transform.position.y <= 0)
+        {
+        //    Die();
+        }
     }
     void Die()
     {
