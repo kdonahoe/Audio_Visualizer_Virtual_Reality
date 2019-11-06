@@ -15,37 +15,44 @@ public class SceneControllerScript : MonoBehaviour
 {
     public OVRInput.Controller controller;
     public GameObject canvas;
-    AudioSource audioSource;
+
+    //audio visualization
     int numCubes = 256;
     public float[] spectrum = new float[512];
-
-    public GameObject cubePrefab, ground;
-    public GameObject snow;
     GameObject[] cubes = new GameObject[512];
-    public float cubeScaler;
-
     public Color[] colors = new Color[512];
+    public List<GameObject> cubeList = new List<GameObject>();
+    public string currentColor;
 
+    public float cubeScaler;
     public float circleSize;
     public int preFabScale;
-    int counter = 0;
 
-    public GameObject particlePrefab, menuPanel, circleCenter, playButton, pauseButton, albumArt, songName;
+    //sparks
     public GameObject blueSpark, pinkSpark, orangeSpark, greenSpark;
-    public GameObject pauseMenu, resumeButton, backJukeBoxButton;
     public int particleCount;
     public float particleMinSize;
     public float particleMaxSize;
     private bool alreadyExploded;
+
+    public GameObject cubePrefab, ground;
+    public GameObject snow;
+
+    //menu
+    public GameObject particlePrefab, menuPanel, circleCenter, playButton, pauseButton, albumArt, songName;
+    public GameObject pauseMenu, resumeButton, backJukeBoxButton;
+
+    //lyrics
     List<LyricLine> songLyrics;
     public TextMeshProUGUI lyrics;
     Vector3 offset;
     public float lyricsDepth, menuDepth;
     public float lyricsHeight, menuHeight;
 
-    public List<GameObject> cubeList = new List<GameObject>();
+    AudioSource audioSource;
 
-    public string currentColor;
+    int counter = 0;
+
     void Start()
     {
         currentColor = "multi";
@@ -53,6 +60,7 @@ public class SceneControllerScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         LoadSong(Properties.selectedSong);
 
+        //creates audio visualization based on number of cubes and size of circle
         for (int i = 0; i < numCubes; i++)
         {
             GameObject cubeInstance = (GameObject)Instantiate(cubePrefab);
@@ -90,6 +98,8 @@ public class SceneControllerScript : MonoBehaviour
     void Update()
     {
         circleCenter.transform.rotation = Camera.main.transform.rotation;
+
+        //Doesn't quite work yet
         if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote) && OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
         {
             OVRInput.Update();
@@ -100,9 +110,9 @@ public class SceneControllerScript : MonoBehaviour
             audioSource.Pause();
             pauseMenu.SetActive(true);
         }
+
+        //properly roates the canvas and menu to face towards the user at all times
         canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - Camera.main.transform.position);
-        //canvas.transform.LookAt(Camera.main.transform, Vector3.up);
-        //canvas.transform.rotation.eulerAngles = new Vector3(0, 0, 0);
         Vector3 newV = new Vector3(circleCenter.transform.position.x + lyricsDepth * circleCenter.transform.forward.x, lyricsHeight, circleCenter.transform.position.z + lyricsDepth * circleCenter.transform.forward.z);
         canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, newV, ref velocity, 0.5f * Time.deltaTime);
 
@@ -111,24 +121,24 @@ public class SceneControllerScript : MonoBehaviour
 
         Vector3 newV3 = new Vector3(Camera.main.transform.position.x + menuDepth * Camera.main.transform.forward.x, ground.transform.position.y + menuHeight + 0.5f, Camera.main.transform.position.z + menuDepth * Camera.main.transform.forward.z);
         pauseMenu.transform.position = Vector3.SmoothDamp(pauseMenu.transform.position, newV3, ref velocity, 1f * Time.deltaTime);
-        //canvas.transform.position = Vector3.SmoothDamp(canvas.transform.position, Camera.main.transform.position + 20f * Camera.main.transform.forward + new Vector3(-Camera.main.transform.position.x, 2f,0), ref velocity, 1f * Time.deltaTime);
+
         if (counter % 5 == 0)
         {
+            //updates audio visualization (specifically height of cubes) based on the current spectrum
             audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
             float average = getAvg(spectrum);
-            print(average);
             for (int j = 0; j < numCubes; j++)
             {
+                //changes size of cubes in spectrum
                 cubes[j].transform.localScale = new Vector3(cubes[j].transform.localScale.x, (spectrum[j] * 1000 * cubeScaler), cubes[j].transform.localScale.z);
 
-
+                //updates the color of the audio visualization based on the color menu selection
                 if (spectrum[j] > preFabScale * average)
                 {
                     for (int i = 0; i < particleCount; i++)
                     {
                         if(currentColor == "white")
                         {
-
                             float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
                             snow.transform.localScale = new Vector3(scale, scale, scale);
                             Instantiate(snow, cubes[j].transform.position, Quaternion.identity);
@@ -169,29 +179,8 @@ public class SceneControllerScript : MonoBehaviour
             }
         }
         counter++;
-        //    numRotation++;
-
-        //  if(numRotation % 60 == 0) //every 20 times
-        //   {
-        // rotateColors(colors);
-        // }
-//#if UNITY_EDITOR
-//        if (Input.GetMouseButtonUp(0))
-//        {
-//            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//            RaycastHit hit;
-//            if (Physics.Raycast(ray, out hit))
-//                Interact(hit);
-//        }
-//#else
-//        if (Input.touchCount > 0)
-//        {
-//            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//            RaycastHit hit;
-//            if (Physics.Raycast(ray, out hit))
-//                Interact(hit);
-//        }
-//#endif
+       
+        //sets song lyrics
         if (songLyrics != null)
         {
             lyrics.text = songLyrics.First().text;
@@ -203,23 +192,7 @@ public class SceneControllerScript : MonoBehaviour
         }
     }
 
-    //void Interact(RaycastHit hit)
-    //{
-    //    if (hit.collider.CompareTag("User"))
-    //    {
-    //        //songLyrics = webUtils.getTopLyrics(Properties.songsList[0]);
-    //        songLyrics = convertToText();
-    //        if (audioSource.isPlaying)
-    //        {
-    //            audioSource.Pause();
-    //        }
-    //        else
-    //        {
-    //            audioSource.Play();
-    //        }
-    //    }
-    //}
-
+    //gets the average height of the spectrum
     float getAvg(float[] spectrum)
     {
         float num = 0;
@@ -230,6 +203,8 @@ public class SceneControllerScript : MonoBehaviour
         float avg = num / numCubes;
         return (avg);
     }
+
+    //roates the color array (turns out this can be timely and kind of distracting)
     void rotateColors(Color[] colors)
     {
         Color temp = colors[0];
@@ -240,6 +215,7 @@ public class SceneControllerScript : MonoBehaviour
         colors[numCubes - 1] = temp;
     }
 
+    //gets the lyrics from the lyrics file loaded in and returns a list of lyrics
     List<LyricLine> getLyrics(string song)
     {
         TextAsset lyric = Resources.Load<TextAsset>("Lyrics/" + song);
@@ -258,7 +234,6 @@ public class SceneControllerScript : MonoBehaviour
                 string timeTxt = line.Substring(0, line.IndexOf("]") + 1).Replace("[", "").Replace("]", "");
 
                 inp_ln.Add(new LyricLine(TimeSpan.ParseExact(timeTxt, formats, culture.NumberFormat).TotalSeconds, line.Substring(line.IndexOf("]") + 1)));
-                // Do Something with the input. 
             }
         }
 
@@ -272,6 +247,7 @@ public class SceneControllerScript : MonoBehaviour
         return rgx.IsMatch(str);
     }
 
+    //the following are methods called by the controller menu
     public void playMusic()
     {
         audioSource.Play();
@@ -297,6 +273,32 @@ public class SceneControllerScript : MonoBehaviour
         audioSource.time += 10;
     }
 
+    void LoadSong(string song)
+    {
+        AudioClip lyric = Resources.Load<AudioClip>("Music/" + song);
+        audioSource.clip = lyric;
+        songLyrics = getLyrics(song);
+        albumArt.GetComponent<RawImage>().texture = Resources.Load<Texture2D>("AlbumArt/" + song);
+        string[] songArr = song.Split('-');
+        if (songArr.Length > 1)
+            songName.GetComponent<TextMeshProUGUI>().text = songArr[0].Trim() + Environment.NewLine + songArr[1].Trim();
+        else
+            songName.GetComponent<TextMeshProUGUI>().text = songArr[0];
+
+    }
+
+    public void ResumeSong()
+    {
+        audioSource.Play();
+        pauseMenu.SetActive(false);
+    }
+
+    public void backToJukeBox()
+    {
+        SceneManager.LoadScene("SongSelector");
+    }
+
+    //sets all cubes in the spectrum white
     public void setWhite()
     {
         currentColor = "white";
@@ -381,28 +383,5 @@ public class SceneControllerScript : MonoBehaviour
         particleMaxSize = 0.2f;
     }
 
-    void LoadSong(string song)
-    {
-        AudioClip lyric = Resources.Load<AudioClip>("Music/" + song);
-        audioSource.clip = lyric;
-        songLyrics = getLyrics(song);
-        albumArt.GetComponent<RawImage>().texture = Resources.Load<Texture2D>("AlbumArt/" + song);
-        string[] songArr = song.Split('-');
-        if (songArr.Length > 1)
-            songName.GetComponent<TextMeshProUGUI>().text = songArr[0].Trim() + Environment.NewLine + songArr[1].Trim();
-        else
-            songName.GetComponent<TextMeshProUGUI>().text = songArr[0];
-
-    }
-
-    public void ResumeSong()
-    {
-        audioSource.Play();
-        pauseMenu.SetActive(false);
-    }
-
-    public void backToJukeBox()
-    {
-        SceneManager.LoadScene("SongSelector");
-    }
+    
 }
