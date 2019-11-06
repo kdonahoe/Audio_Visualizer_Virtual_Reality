@@ -87,52 +87,52 @@
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPPropagationSerializationManager.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPReflectionCustomGUI.cs" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -336,16 +336,16 @@
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack.CssSelectors">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

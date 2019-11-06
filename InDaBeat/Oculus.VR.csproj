@@ -136,10 +136,10 @@
     <None Include="Assets\Oculus\VR\Resources\Underlay Impostor.shader" />
     <None Include="Assets\Oculus\VR\Plugins\placeholder.txt" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -337,13 +337,13 @@
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack.CssSelectors">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.CssSelectors.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>/Users/phil/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.4f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
