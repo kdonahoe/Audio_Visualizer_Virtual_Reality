@@ -325,6 +325,7 @@
     <Compile Include="Assets\Scripts\SnowController.cs" />
     <Compile Include="Assets\Scripts\SparkBehavior.cs" />
     <Compile Include="Assets\SongSelection.cs" />
+    <Compile Include="Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

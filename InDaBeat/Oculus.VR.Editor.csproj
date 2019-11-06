@@ -86,11 +86,11 @@
     <None Include="Assets\Oculus\VR\Editor\network_sec_config 2.xml" />
     <None Include="Assets\Oculus\VR\Editor\network_sec_config.xml" />
     <None Include="Assets\Oculus\VR\Editor\Oculus.VR.Editor.asmdef" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>

@@ -435,7 +435,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.5e-44, y: 0, z: 1.5, w: 3e-45}
+  m_BoundingSphereOverride: {x: 1e-45, y: 1.39e-43, z: 0, w: 2.2e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1135,13 +1135,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308572595}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b4169f2b960ca74b82d99f80be73f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftCtrl: {fileID: 0}
-  rightCtrl: {fileID: 0}
   songDisplay: {fileID: 722686433}
   songList: []
 --- !u!1 &1372789606
