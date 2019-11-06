@@ -17,7 +17,6 @@ public class JukeboxScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Started script");
         initiateSongList();
         curIndex = 0;
         songName = songDisplay.GetComponent<TextMeshProUGUI>();
@@ -34,20 +33,16 @@ public class JukeboxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(curIndex);
-        Debug.Log(songName.text);
         songName.text = songList[curIndex];
     }
 
     void nextSongDisplay()
     {
-        Debug.Log("Detected click");
         curIndex = ((curIndex + 1) % songList.Count);
     }
 
     void prevSongDisplay()
     {
-        Debug.Log("Detected click");
         if (curIndex == 0)
         {
             curIndex = songList.Count - 1;
@@ -60,14 +55,19 @@ public class JukeboxScript : MonoBehaviour
 
     void selectSongDisplay()
     {
+        Properties.selectedSong = songName.text;
         SceneManager.LoadScene("AudioVisualScene");
     }
 
     void initiateSongList()
     {
-        songList.Add("All Star - Smash Mouth");
-        songList.Add("Hey Jude - The Beatles");
-        songList.Add("Piano Man - Billy Joel");
-        songList.Add("Rocket Man - Elton John");
+        AudioClip[] songs = Resources.LoadAll<AudioClip>("Music/");
+        if (songs != null && songs.Length > 0)
+        {
+            foreach (AudioClip song in songs)
+            {
+                songList.Add(song.name);
+            }
+        }
     }
 }

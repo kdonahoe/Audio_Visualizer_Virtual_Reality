@@ -7,17 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneController1 : MonoBehaviour
 {
-    //static List<RaycastHit> hits = new List<RaycastHit>();
-    OVRRaycaster raycastManager;
-    public GameObject leftCtrl, rightCtrl, songDisplay;
+    public GameObject songDisplay;
     private TextMeshProUGUI songName;
     public List<string> songList = new List<string>();
-    float sightLength = 2.0F;
     int curIndex;
     // Start is called before the first frame update
     void Start()
     {
-        raycastManager = GetComponent<OVRRaycaster>();
         initiateSongList();
         curIndex = 0;
         songName = songDisplay.GetComponent<TextMeshProUGUI>();
@@ -27,41 +23,6 @@ public class SceneController1 : MonoBehaviour
     void Update()
     {
         songName.text = songList[curIndex];
-
-        RaycastHit leftHit, rightHit;
-        Ray leftRay = new Ray(leftCtrl.transform.position, leftCtrl.transform.forward);
-        Ray rightRay = new Ray(rightCtrl.transform.position, rightCtrl.transform.forward);
-
-        if (Physics.Raycast(leftRay, out leftHit, sightLength))
-        {
-            if (leftHit.collider.tag == "PrevButton")
-            {
-                prevSongDisplay();
-            }
-            if (leftHit.collider.tag == "NextButton")
-            {
-                nextSongDisplay();
-            }
-            if (leftHit.collider.tag == "SelectButton")
-            {
-                selectSongDisplay();
-            }
-        }
-        if (Physics.Raycast(rightRay, out rightHit, sightLength))
-        {
-            if (rightHit.collider.tag == "PrevButton")
-            {
-                prevSongDisplay();
-            }
-            if (rightHit.collider.tag == "NextButton")
-            {
-                nextSongDisplay();
-            }
-            if (rightHit.collider.tag == "SelectButton")
-            {
-                selectSongDisplay();
-            }
-        }
     }
 
     void nextSongDisplay()
@@ -82,14 +43,19 @@ public class SceneController1 : MonoBehaviour
     }
     void selectSongDisplay()
     {
+        Properties.selectedSong = songName.text;
         SceneManager.LoadScene("AudioVisualScene");
     }
 
     void initiateSongList()
     {
-        songList.Add("All Star - Smash Mouth");
-        songList.Add("Hey Jude - The Beatles");
-        songList.Add("Piano Man - Billy Joel");
-        songList.Add("Rocket Man - Elton John");
+        AudioClip[] songs = Resources.LoadAll<AudioClip>("Music/");
+        if(songs != null && songs.Length > 0)
+        {
+            foreach(AudioClip song in songs)
+            {
+                songList.Add(song.name);
+            }
+        }
     }
 }
