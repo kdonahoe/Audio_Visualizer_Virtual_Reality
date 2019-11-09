@@ -736,7 +736,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.14}
-  m_SizeDelta: {x: 2.66, y: 1.11}
+  m_SizeDelta: {x: 1.6, y: 0.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283758218
 MonoBehaviour:
@@ -751,15 +751,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ac991827850df439a9d3cc58dd972124, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1590,7 +1590,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &707775309
 RectTransform:
@@ -2541,7 +2541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.57, y: 0.17}
+  m_AnchoredPosition: {x: -0.58, y: 0.17}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281459204
@@ -4472,10 +4472,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  cubePrefab: {fileID: 129616, guid: 55141490e6ade7d4f9c7305f94a39943, type: 3}
-  ground: {fileID: 1755397238}
-  snow: {fileID: 4714661788417560756, guid: 711ffd4f8fb182044b9ae0ec373cef03, type: 3}
-  cubeScaler: 2
   colors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
@@ -4989,16 +4985,11 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
+  cubeList: []
+  currentColor: 
+  cubeScaler: 2
   circleSize: 0.1
   preFabScale: 4
-  particlePrefab: {fileID: 5755162785260126720, guid: f142f0c4279ba77409d3393c5d536497,
-    type: 3}
-  menuPanel: {fileID: 1233021501}
-  circleCenter: {fileID: 1912780461}
-  playButton: {fileID: 247245538}
-  pauseButton: {fileID: 728564627}
-  albumArt: {fileID: 453604765}
-  songName: {fileID: 1771247536}
   blueSpark: {fileID: 5755162785260126720, guid: 7932054a4761867439b246e28ce0742f,
     type: 3}
   pinkSpark: {fileID: 5755162785260126720, guid: de82443aeffda594eaebadf864379200,
@@ -5007,19 +4998,28 @@ MonoBehaviour:
     type: 3}
   greenSpark: {fileID: 5755162785260126720, guid: 97e261dd92514954a9da5c5e68f75869,
     type: 3}
-  pauseMenu: {fileID: 1539277465}
-  resumeButton: {fileID: 0}
-  backJukeBoxButton: {fileID: 0}
   particleCount: 4
   particleMinSize: 0.05
   particleMaxSize: 0.2
+  cubePrefab: {fileID: 129616, guid: 55141490e6ade7d4f9c7305f94a39943, type: 3}
+  ground: {fileID: 1755397238}
+  snow: {fileID: 4714661788417560756, guid: 711ffd4f8fb182044b9ae0ec373cef03, type: 3}
+  particlePrefab: {fileID: 5755162785260126720, guid: f142f0c4279ba77409d3393c5d536497,
+    type: 3}
+  menuPanel: {fileID: 1233021501}
+  circleCenter: {fileID: 1912780461}
+  playButton: {fileID: 247245538}
+  pauseButton: {fileID: 728564627}
+  albumArt: {fileID: 453604765}
+  songName: {fileID: 1771247536}
+  pauseMenu: {fileID: 1539277465}
+  resumeButton: {fileID: 0}
+  backJukeBoxButton: {fileID: 0}
   lyrics: {fileID: 1281459204}
   lyricsDepth: 4.5
   menuDepth: 1
   lyricsHeight: 1
   menuHeight: 0.8
-  cubeList: []
-  currentColor: 
 --- !u!82 &2018807964
 AudioSource:
   m_ObjectHideFlags: 0
