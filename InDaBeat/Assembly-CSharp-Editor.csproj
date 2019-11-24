@@ -79,6 +79,10 @@
     <Compile Include="Assets\Oculus\Platform\Editor\OculusPlatformSettingsEditor.cs" />
     <Compile Include="Assets\Oculus\Platform\Editor\OculusPluginUpdaterStub.cs" />
     <Compile Include="Assets\Oculus\Platform\Editor\OculusStandalonePlatformResponse.cs" />
+    <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\Editor\TeleportTransitionWarpInspector.cs" />
+    <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\AndroidVideoEditorUtil.cs" />
+    <Compile Include="Assets\Oculus\SampleFramework\Editor\BuildAssetPackages.cs" />
+    <Compile Include="Assets\Oculus\SampleFramework\Editor\OculusSampleFrameworkUtil.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdater.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioPluginUpdaterStub.cs" />
     <Compile Include="Assets\Oculus\Spatializer\editor\ONSPAudioSourceEditor.cs" />

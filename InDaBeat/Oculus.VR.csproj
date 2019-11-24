@@ -86,6 +86,8 @@
     <Compile Include="Assets\Oculus\VR\Scripts\OVRPlatformMenu.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRPlugin.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRProfile.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRResources.cs" />
+    <Compile Include="Assets\Oculus\VR\Scripts\OVRSceneLoader.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\OVRTracker.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRAudioSourceTest.cs" />
     <Compile Include="Assets\Oculus\VR\Scripts\Util\OVRChromaticAberration.cs" />

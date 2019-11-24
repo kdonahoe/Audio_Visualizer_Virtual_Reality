@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\Oculus\VR\Editor\OVRADBTool.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVRBuild.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRBundleManager.cs" />
+    <Compile Include="Assets\Oculus\VR\Editor\OVRBundleTool.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVRConfig.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVRDeviceSelector.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\OVRDirectorySyncer.cs" />
@@ -83,8 +85,8 @@
     <Compile Include="Assets\Oculus\VR\Editor\OVRSystemProfilerPanel.cs" />
     <Compile Include="Assets\Oculus\VR\Editor\PathHelper.cs" />
     <None Include="Assets\Oculus\VR\Editor\AndroidManifest.OVRSubmission.xml" />
-    <None Include="Assets\Oculus\VR\Editor\network_sec_config 2.xml" />
     <None Include="Assets\Oculus\VR\Editor\network_sec_config.xml" />
+    <None Include="Assets\Oculus\VR\Editor\network_sec_config 2.xml" />
     <None Include="Assets\Oculus\VR\Editor\Oculus.VR.Editor.asmdef" />
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/phil/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
