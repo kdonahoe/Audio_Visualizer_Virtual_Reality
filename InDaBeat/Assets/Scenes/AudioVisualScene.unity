@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.23190945, g: 0.23507786, b: 0.27232572, a: 1}
+  m_IndirectSpecularColor: {r: 0.1964289, g: 0.19972649, b: 0.23002136, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524698002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707775305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -5020,6 +5020,12 @@ MonoBehaviour:
   menuDepth: 1
   lyricsHeight: 1
   menuHeight: 0.8
+  skyboxWhite: {fileID: 2100000, guid: 6166c55c8da395a42984b7160fc2a844, type: 2}
+  skyboxOrange: {fileID: 2100000, guid: 1e71c3687f1b47645b1489a806f61bfd, type: 2}
+  skyboxGreen: {fileID: 2100000, guid: 2ca3df4fe9e222248989137f875c07cf, type: 2}
+  skyboxBlue: {fileID: 2100000, guid: cfd760b7d164ff749ba8785d0ca857d7, type: 2}
+  skyboxPink: {fileID: 2100000, guid: ef833912b86f38143b531fb4f9f7ec97, type: 2}
+  skyboxMulti: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
 --- !u!82 &2018807964
 AudioSource:
   m_ObjectHideFlags: 0

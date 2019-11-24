@@ -51,6 +51,13 @@ public class SceneControllerScript : MonoBehaviour
 
     AudioSource audioSource;
 
+    public Material skyboxWhite;
+    public Material skyboxOrange;
+    public Material skyboxGreen;
+    public Material skyboxBlue;
+    public Material skyboxPink;
+    public Material skyboxMulti;
+
     int counter = 0;
 
     void Start()
@@ -59,6 +66,7 @@ public class SceneControllerScript : MonoBehaviour
         offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
         LoadSong(Properties.selectedSong);
+
 
         //creates audio visualization based on number of cubes and size of circle
         for (int i = 0; i < numCubes; i++)
@@ -80,6 +88,7 @@ public class SceneControllerScript : MonoBehaviour
             {
                 this.transform.eulerAngles = new Vector3(0, -3.55f * i, 0);
                 cubeInstance.transform.position = Vector3.forward * 30 * circleSize;
+
             }
             if (numCubes == 128)
             {
@@ -92,6 +101,15 @@ public class SceneControllerScript : MonoBehaviour
 
 
         }
+    }
+    Vector3 RandomCircle(Vector3 center, float radius)
+    {
+        float ang = UnityEngine.Random.value * 360;
+        Vector3 pos;
+        pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+        pos.y = center.y;
+        pos.z = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        return pos;
     }
     Vector3 velocity;
     // Update is called once per frame
@@ -311,6 +329,8 @@ public class SceneControllerScript : MonoBehaviour
         preFabScale = 1;
         particleMinSize = 0.02f;
         particleMaxSize = 0.05f;
+
+        RenderSettings.skybox = skyboxWhite;
     }
 
     public void setOrange()
@@ -324,6 +344,8 @@ public class SceneControllerScript : MonoBehaviour
         preFabScale = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
+
+        RenderSettings.skybox = skyboxOrange;
     }
 
     public void setGreen()
@@ -338,6 +360,8 @@ public class SceneControllerScript : MonoBehaviour
         preFabScale = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
+
+        RenderSettings.skybox = skyboxGreen;
     }
 
     public void setBlue()
@@ -352,6 +376,8 @@ public class SceneControllerScript : MonoBehaviour
         preFabScale = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
+
+        RenderSettings.skybox = skyboxBlue;
     }
 
 
@@ -367,6 +393,8 @@ public class SceneControllerScript : MonoBehaviour
         preFabScale = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
+
+        RenderSettings.skybox = skyboxPink;
     }
 
     public void setMulti()
@@ -381,6 +409,8 @@ public class SceneControllerScript : MonoBehaviour
         preFabScale = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
+
+        RenderSettings.skybox = skyboxMulti;
     }
 
     
