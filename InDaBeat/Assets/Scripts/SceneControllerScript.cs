@@ -22,11 +22,11 @@ public class SceneControllerScript : MonoBehaviour
     GameObject[] cubes = new GameObject[512];
     public Color[] colors = new Color[512];
     public List<GameObject> cubeList = new List<GameObject>();
+    public List<GameObject> otherObjects = new List<GameObject>();
     public string currentColor;
 
     public float cubeScaler;
-    public float circleSize;
-    public int preFabScale;
+    public int cubeThreshold;
 
     //sparks
     public GameObject blueSpark, pinkSpark, orangeSpark, greenSpark;
@@ -40,6 +40,8 @@ public class SceneControllerScript : MonoBehaviour
 
     //menu
     public GameObject particlePrefab, menuPanel, circleCenter, playButton, pauseButton, albumArt, songName;
+
+    public GameObject asteroid;
     public GameObject pauseMenu, resumeButton, backJukeBoxButton;
 
     //lyrics
@@ -58,6 +60,14 @@ public class SceneControllerScript : MonoBehaviour
     public Material skyboxPink;
     public Material skyboxMulti;
 
+    public GameObject tree;
+
+    public GameObject multiObjects;
+    public GameObject pinkObjects;
+    public GameObject greenObjects;
+    public GameObject blueObjects;
+    public GameObject orangeObjects;
+    public GameObject whiteObjects;
     int counter = 0;
 
     void Start()
@@ -67,48 +77,33 @@ public class SceneControllerScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         LoadSong(Properties.selectedSong);
 
+        Vector3 center = transform.position;
 
-        //creates audio visualization based on number of cubes and size of circle
-        for (int i = 0; i < numCubes; i++)
+        for (int i = 0; i < 128; i++)
         {
-            GameObject cubeInstance = (GameObject)Instantiate(cubePrefab);
-            cubeInstance.transform.parent = this.transform;
+            float ang = 2.8125f * i;
+            Vector3 pos = circleUp(center, 6.5f,ang);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+            GameObject cubeInstance = Instantiate(cubePrefab, pos, rot);
 
             var cubeRenderer = cubeInstance.GetComponent<Renderer>();
 
             colors[i] = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             cubeRenderer.material.SetColor("_Color", colors[i]);
 
-            if (numCubes == 512)
-            {
-                this.transform.eulerAngles = new Vector3(0, -0.703f * i, 0);
-                cubeInstance.transform.position = Vector3.forward * 100 * circleSize;
-            }
-            if (numCubes == 256)
-            {
-                this.transform.eulerAngles = new Vector3(0, -3.55f * i, 0);
-                cubeInstance.transform.position = Vector3.forward * 30 * circleSize;
-
-            }
-            if (numCubes == 128)
-            {
-                this.transform.eulerAngles = new Vector3(0, -5.5f * i, 0);
-                cubeInstance.transform.position = Vector3.forward * 12 * circleSize;
-            }
-            cubeInstance.transform.position = new Vector3(cubeInstance.transform.position.x, ground.transform.position.y, cubeInstance.transform.position.z);
             cubes[i] = cubeInstance;
             cubeList.Add(cubeInstance);
-
-
         }
+
+        
     }
-    Vector3 RandomCircle(Vector3 center, float radius)
+
+    Vector3 circleUp(Vector3 center, float radius, float ang)
     {
-        float ang = UnityEngine.Random.value * 360;
         Vector3 pos;
         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
-        pos.y = center.y;
-        pos.z = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        pos.y = center.z;
+        pos.z = center.z + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
         return pos;
     }
     Vector3 velocity;
@@ -117,6 +112,18 @@ public class SceneControllerScript : MonoBehaviour
     {
         circleCenter.transform.rotation = Camera.main.transform.rotation;
 
+        //sets song lyrics
+        if (songLyrics != null)
+        {
+            lyrics.text = songLyrics.First().text;
+            List<LyricLine> lyr = songLyrics.Where(x => x.time < Convert.ToDouble(audioSource.time) - 0.5).ToList();
+            if (lyr.Count > 0)
+            {
+                lyrics.text = lyr.Last().text;
+            }
+        }
+
+        /*
         //Doesn't quite work yet
         if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote) && OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
         {
@@ -128,7 +135,7 @@ public class SceneControllerScript : MonoBehaviour
             audioSource.Pause();
             pauseMenu.SetActive(true);
         }
-
+        */
         //properly roates the canvas and menu to face towards the user at all times
         canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - Camera.main.transform.position);
         Vector3 newV = new Vector3(circleCenter.transform.position.x + lyricsDepth * circleCenter.transform.forward.x, lyricsHeight, circleCenter.transform.position.z + lyricsDepth * circleCenter.transform.forward.z);
@@ -151,63 +158,66 @@ public class SceneControllerScript : MonoBehaviour
                 cubes[j].transform.localScale = new Vector3(cubes[j].transform.localScale.x, (spectrum[j] * 1000 * cubeScaler), cubes[j].transform.localScale.z);
 
                 //updates the color of the audio visualization based on the color menu selection
-                if (spectrum[j] > preFabScale * average)
+
+                if (spectrum[j] > cubeThreshold * average)
                 {
                     for (int i = 0; i < particleCount; i++)
                     {
-                        if(currentColor == "white")
-                        {
-                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                            snow.transform.localScale = new Vector3(scale, scale, scale);
-                            Instantiate(snow, cubes[j].transform.position, Quaternion.identity);
-                        }
-                        else if(currentColor == "orange")
-                        {
-                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                            orangeSpark.transform.localScale = new Vector3(scale, scale, scale);
-                            Instantiate(orangeSpark, cubes[j].transform.position, Quaternion.identity);
-                        }
-                        else if (currentColor == "green")
-                        {
-                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                            greenSpark.transform.localScale = new Vector3(scale, scale, scale);
-                            Instantiate(greenSpark, cubes[j].transform.position, Quaternion.identity);
-                        }
-                        else if (currentColor == "blue")
-                        {
-                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                            blueSpark.transform.localScale = new Vector3(scale, scale, scale);
-                            Instantiate(blueSpark, cubes[j].transform.position, Quaternion.identity);
-                        }
-                        else if (currentColor == "pink")
-                        {
-                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                            pinkSpark.transform.localScale = new Vector3(scale, scale, scale);
-                            Instantiate(pinkSpark, cubes[j].transform.position, Quaternion.identity);
-                        }
-                        else
-                        {
-                            float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                            particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
-                            Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
-                        }
-                        
+                      //  float scale = UnityEngine.Random.Range(particleMinSize*800, particleMaxSize*800);
+                      //  asteroid.transform.localScale = new Vector3(scale, scale, scale);
+                      //  Instantiate(asteroid, cubes[j].transform.position + new Vector3(0,5,0), Quaternion.identity);
                     }
                 }
-            }
+                        /*
+                        if (spectrum[j] > cubeThreshold * average)
+                        {
+                            for (int i = 0; i < particleCount; i++)
+                            {
+                                if(currentColor == "white")
+                                {
+                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                                    snow.transform.localScale = new Vector3(scale, scale, scale);
+                                    Instantiate(snow, cubes[j].transform.position, Quaternion.identity);
+                                }
+                                else if(currentColor == "orange")
+                                {
+                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                                    orangeSpark.transform.localScale = new Vector3(scale, scale, scale);
+                                    Instantiate(orangeSpark, cubes[j].transform.position, Quaternion.identity);
+                                }
+                                else if (currentColor == "green")
+                                {
+                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                                    greenSpark.transform.localScale = new Vector3(scale, scale, scale);
+                                    Instantiate(greenSpark, cubes[j].transform.position, Quaternion.identity);
+                                }
+                                else if (currentColor == "blue")
+                                {
+                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                                    blueSpark.transform.localScale = new Vector3(scale, scale, scale);
+                                    Instantiate(blueSpark, cubes[j].transform.position, Quaternion.identity);
+                                }
+                                else if (currentColor == "pink")
+                                {
+                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                                    pinkSpark.transform.localScale = new Vector3(scale, scale, scale);
+                                    Instantiate(pinkSpark, cubes[j].transform.position, Quaternion.identity);
+                                }
+                                else
+                                {
+                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
+                                    particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
+                                    Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
+                                }
+
+                            }
+                        }
+                        */
+                    }
         }
         counter++;
        
-        //sets song lyrics
-        if (songLyrics != null)
-        {
-            lyrics.text = songLyrics.First().text;
-            List<LyricLine> lyr = songLyrics.Where(x => x.time < Convert.ToDouble(audioSource.time) - 0.5).ToList();
-            if (lyr.Count > 0)
-            {
-                lyrics.text = lyr.Last().text;
-            }
-        }
+        
     }
 
     //gets the average height of the spectrum
@@ -320,13 +330,63 @@ public class SceneControllerScript : MonoBehaviour
     public void setWhite()
     {
         currentColor = "white";
+
+        blueObjects.active = false;
+        greenObjects.active = true;
+        orangeObjects.active = false;
+        multiObjects.active = false;
+        pinkObjects.active = false;
+
+
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 0.02f, 0f, 0.1f, 0.5f, 1f));
             Renderer rend = ground.GetComponent<Renderer>();          
         }
-        preFabScale = 1;
+
+        /*
+        for (int i = 0; i < 128; i++)
+        {
+            Destroy(cubeList[i]);
+            Vector3 center = transform.position;
+            float ang = 2.8125f * i;
+            Vector3 pos = RandomCircle(center, 6.5f, ang);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+            GameObject cubeInstance = Instantiate(cubePrefab, pos, rot);
+
+            var cubeRenderer = cubeInstance.GetComponent<Renderer>();
+
+            colors[i] = UnityEngine.Random.ColorHSV(0f, 0.02f, 0f, 0.1f, 0.5f, 1f);
+            cubeRenderer.material.SetColor("_Color", colors[i]);
+
+            cubes[i] = cubeInstance;
+            cubeList.Add(cubeInstance);
+        }
+       
+
+        Vector3 center = circleCenter.transform.position;
+
+        if(otherObjects.Count > 0)
+        {
+            for (int i = 0; i < otherObjects.Count; i++)
+            {
+                otherObjects.Remove(otherObjects[i]);
+            }
+            otherObjects.Clear();
+        }
+        
+     
+        for (int i = 0; i < 128; i++)
+        {
+            float ang = (2.8125f) * i;
+            float dist = UnityEngine.Random.value * 10 + 30.0f;
+            Vector3 pos = RandomCircle(center, dist, ang);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+            otherObjects.Add(Instantiate(tree, pos, rot));
+        }
+         */
+        cubeThreshold = 1;
         particleMinSize = 0.02f;
         particleMaxSize = 0.05f;
 
@@ -336,12 +396,20 @@ public class SceneControllerScript : MonoBehaviour
     public void setOrange()
     {
         currentColor = "orange";
+
+        whiteObjects.active = false;
+        blueObjects.active = false;
+        greenObjects.active = false;
+        orangeObjects.active = true;
+        multiObjects.active = false;
+        pinkObjects.active = false;
+
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 0.1f, 1f, 1f, 0.5f, 1f));
         }
-        preFabScale = 3;
+        cubeThreshold = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
 
@@ -351,13 +419,21 @@ public class SceneControllerScript : MonoBehaviour
     public void setGreen()
     {
         currentColor = "green";
+
+        whiteObjects.active = false;
+        blueObjects.active = false;
+        greenObjects.active = true;
+        orangeObjects.active = false;
+        multiObjects.active = false;
+        pinkObjects.active = false;
+
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0.2f, 0.4f, 1f, 1f, 0.5f, 1f));
         }
 
-        preFabScale = 3;
+        cubeThreshold = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
 
@@ -367,13 +443,21 @@ public class SceneControllerScript : MonoBehaviour
     public void setBlue()
     {
         currentColor = "blue";
+
+        whiteObjects.active = false;
+        blueObjects.active = true;
+        greenObjects.active = false;
+        orangeObjects.active = false;
+        multiObjects.active = false;
+        pinkObjects.active = false;
+
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0.5f, 0.7f, 1f, 1f, 0.5f, 1f));
         }
 
-        preFabScale = 3;
+        cubeThreshold = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
 
@@ -384,13 +468,22 @@ public class SceneControllerScript : MonoBehaviour
     public void setPink()
     {
         currentColor = "pink";
+
+        whiteObjects.active = false;
+        blueObjects.active = false;
+        greenObjects.active = false;
+        orangeObjects.active = false;
+        multiObjects.active = false;
+
+        pinkObjects.active = true;
+
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0.8f, 0.9f, 1f, 1f, 0.5f, 1f));
         }
 
-        preFabScale = 3;
+        cubeThreshold = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
 
@@ -400,13 +493,22 @@ public class SceneControllerScript : MonoBehaviour
     public void setMulti()
     {
         currentColor = "multi";
+
+        pinkObjects.active = false;
+        whiteObjects.active = false;
+        blueObjects.active = false;
+        greenObjects.active = false;
+        orangeObjects.active = false;
+
+        multiObjects.active = true;
+
         foreach (GameObject cube in cubeList)
         {
             var cubeRenderer = cube.GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f));
         }
 
-        preFabScale = 3;
+        cubeThreshold = 3;
         particleMinSize = 0.01f;
         particleMaxSize = 0.2f;
 
