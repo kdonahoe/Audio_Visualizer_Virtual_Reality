@@ -163,9 +163,9 @@ public class SceneControllerScript : MonoBehaviour
                 {
                     for (int i = 0; i < particleCount; i++)
                     {
-                      //  float scale = UnityEngine.Random.Range(particleMinSize*800, particleMaxSize*800);
-                      //  asteroid.transform.localScale = new Vector3(scale, scale, scale);
-                      //  Instantiate(asteroid, cubes[j].transform.position + new Vector3(0,5,0), Quaternion.identity);
+                       float scale = UnityEngine.Random.Range(particleMinSize*100, particleMaxSize*100);
+                       asteroid.transform.localScale = new Vector3(scale, scale, scale);
+                       Instantiate(asteroid, cubes[j].transform.position + new Vector3(0,5,0), Quaternion.identity);
                     }
                 }
                         /*
@@ -330,9 +330,9 @@ public class SceneControllerScript : MonoBehaviour
     public void setWhite()
     {
         currentColor = "white";
-
+        whiteObjects.active = true;
         blueObjects.active = false;
-        greenObjects.active = true;
+        greenObjects.active = false;
         orangeObjects.active = false;
         multiObjects.active = false;
         pinkObjects.active = false;
