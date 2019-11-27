@@ -123,19 +123,6 @@ public class SceneControllerScript : MonoBehaviour
             }
         }
 
-        /*
-        //Doesn't quite work yet
-        if (OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote) && OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote))
-        {
-            OVRInput.Update();
-            OVRInput.SetControllerVibration(60, 60, OVRInput.Controller.RTouch);
-        }
-        if (OVRInput.Get(OVRInput.Button.One))
-        {
-            audioSource.Pause();
-            pauseMenu.SetActive(true);
-        }
-        */
         //properly roates the canvas and menu to face towards the user at all times
         canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - Camera.main.transform.position);
         Vector3 newV = new Vector3(circleCenter.transform.position.x + lyricsDepth * circleCenter.transform.forward.x, lyricsHeight, circleCenter.transform.position.z + lyricsDepth * circleCenter.transform.forward.z);
@@ -168,52 +155,7 @@ public class SceneControllerScript : MonoBehaviour
                        Instantiate(asteroid, cubes[j].transform.position + new Vector3(0,5,0), Quaternion.identity);
                     }
                 }
-                        /*
-                        if (spectrum[j] > cubeThreshold * average)
-                        {
-                            for (int i = 0; i < particleCount; i++)
-                            {
-                                if(currentColor == "white")
-                                {
-                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                                    snow.transform.localScale = new Vector3(scale, scale, scale);
-                                    Instantiate(snow, cubes[j].transform.position, Quaternion.identity);
-                                }
-                                else if(currentColor == "orange")
-                                {
-                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                                    orangeSpark.transform.localScale = new Vector3(scale, scale, scale);
-                                    Instantiate(orangeSpark, cubes[j].transform.position, Quaternion.identity);
-                                }
-                                else if (currentColor == "green")
-                                {
-                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                                    greenSpark.transform.localScale = new Vector3(scale, scale, scale);
-                                    Instantiate(greenSpark, cubes[j].transform.position, Quaternion.identity);
-                                }
-                                else if (currentColor == "blue")
-                                {
-                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                                    blueSpark.transform.localScale = new Vector3(scale, scale, scale);
-                                    Instantiate(blueSpark, cubes[j].transform.position, Quaternion.identity);
-                                }
-                                else if (currentColor == "pink")
-                                {
-                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                                    pinkSpark.transform.localScale = new Vector3(scale, scale, scale);
-                                    Instantiate(pinkSpark, cubes[j].transform.position, Quaternion.identity);
-                                }
-                                else
-                                {
-                                    float scale = UnityEngine.Random.Range(particleMinSize, particleMaxSize);
-                                    particlePrefab.transform.localScale = new Vector3(scale, scale, scale);
-                                    Instantiate(particlePrefab, cubes[j].transform.position, Quaternion.identity);
-                                }
-
-                            }
-                        }
-                        */
-                    }
+            }
         }
         counter++;
        
@@ -345,47 +287,6 @@ public class SceneControllerScript : MonoBehaviour
             Renderer rend = ground.GetComponent<Renderer>();          
         }
 
-        /*
-        for (int i = 0; i < 128; i++)
-        {
-            Destroy(cubeList[i]);
-            Vector3 center = transform.position;
-            float ang = 2.8125f * i;
-            Vector3 pos = RandomCircle(center, 6.5f, ang);
-            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
-            GameObject cubeInstance = Instantiate(cubePrefab, pos, rot);
-
-            var cubeRenderer = cubeInstance.GetComponent<Renderer>();
-
-            colors[i] = UnityEngine.Random.ColorHSV(0f, 0.02f, 0f, 0.1f, 0.5f, 1f);
-            cubeRenderer.material.SetColor("_Color", colors[i]);
-
-            cubes[i] = cubeInstance;
-            cubeList.Add(cubeInstance);
-        }
-       
-
-        Vector3 center = circleCenter.transform.position;
-
-        if(otherObjects.Count > 0)
-        {
-            for (int i = 0; i < otherObjects.Count; i++)
-            {
-                otherObjects.Remove(otherObjects[i]);
-            }
-            otherObjects.Clear();
-        }
-        
-     
-        for (int i = 0; i < 128; i++)
-        {
-            float ang = (2.8125f) * i;
-            float dist = UnityEngine.Random.value * 10 + 30.0f;
-            Vector3 pos = RandomCircle(center, dist, ang);
-            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
-            otherObjects.Add(Instantiate(tree, pos, rot));
-        }
-         */
         cubeThreshold = 1;
         particleMinSize = 0.02f;
         particleMaxSize = 0.05f;
