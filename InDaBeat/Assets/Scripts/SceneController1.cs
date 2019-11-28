@@ -10,7 +10,8 @@ public class SceneController1 : MonoBehaviour
     public GameObject songDisplay;
     private TextMeshProUGUI songName;
     public List<string> songList = new List<string>();
-    int curIndex;
+    public int curIndex;
+    public GameObject NetMgr;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,8 @@ public class SceneController1 : MonoBehaviour
     void nextSongDisplay()
     {
         curIndex = ((curIndex + 1) % songList.Count);
+        NetMgr.GetComponent<NetworkManager>().UpdateSongIndex(curIndex);
+        Debug.Log("Called UpdateSongIndex from SceneCtrl");
     }
 
     void prevSongDisplay()
@@ -40,6 +43,8 @@ public class SceneController1 : MonoBehaviour
         {
             curIndex -= 1;
         }
+        NetMgr.GetComponent<NetworkManager>().UpdateSongIndex(curIndex);
+        Debug.Log("Called UpdateSongIndex from SceneCtrl");
     }
     void selectSongDisplay()
     {
