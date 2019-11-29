@@ -3,6 +3,7 @@ using ExitGames.Client.Photon;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, IOnEventCallback, IConnectionCallbacks
 {
@@ -10,8 +11,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
 
     public const byte InstantiateVrAvatarEventCode = 1; // example code, change to any value between 1 and 199
     public const byte ChangeSongIndexEventCode = 2;
+    public const byte SendToAudioVisualScene = 3;
 
-    public GameObject SceneCtrl;
+    public GameObject JukeBoxCtrl;
     GameObject localAvatar;
 
     bool joinedRoom;
@@ -28,17 +30,23 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
     }
 
     void Start()
-    {
-        PhotonNetwork.AutomaticallySyncScene = true;
-
-        Debug.Log("Trying to connect using settings");
-        if (PhotonNetwork.ConnectUsingSettings())
+    {   
+        if (PhotonNetwork.IsConnected)
         {
-            Debug.Log("Success connecting using Photon settings!");
+            RoomOptions roomOptions = new RoomOptions() { };
+            PhotonNetwork.JoinOrCreateRoom(_room, roomOptions, TypedLobby.Default);
         }
         else
         {
-            Debug.LogError("Failed to connect using Photon settings");
+            Debug.Log("Trying to connect using settings");
+            if (PhotonNetwork.ConnectUsingSettings())
+            {
+                Debug.Log("Success connecting using Photon settings!");
+            }
+            else
+            {
+                Debug.LogError("Failed to connect using Photon settings");
+            }
         }
     }
 
@@ -52,6 +60,17 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         };
 
         PhotonNetwork.RaiseEvent(ChangeSongIndexEventCode, newIndex, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    public void SendClientsToAudioVisualScene()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+
+        PhotonNetwork.RaiseEvent(SendToAudioVisualScene, null, raiseEventOptions, SendOptions.SendReliable);
     }
 
     public override void OnConnectedToMaster() //Callback function for when the first connection is established successfully.
@@ -68,17 +87,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
     {
         joinedRoom = true;
 
-        /* // Instantiate localAvatar and make it follow the OVR tracking space
-        localAvatar = Instantiate(Resources.Load("LocalAvatar")) as GameObject;
-        localAvatar.GetComponent<OvrAvatar>().LeftHandCustomPose.transform.SetParent(GameObject.Find("OVRPlayerController/OVRCameraRig/TrackingSpace/LeftHandAnchor").transform);
-        localAvatar.GetComponent<OvrAvatar>().RightHandCustomPose.transform.SetParent(GameObject.Find("OVRPlayerController/OVRCameraRig/TrackingSpace/RightHandAnchor").transform);
-        */
-
         // This is just a sphere that represents the player so we can easily see other players
         Debug.Log("Trying to instantiate player prefab");
         //PhotonNetwork.Instantiate("NetworkedPlayerLocal", Vector3.zero, Quaternion.identity, 0);
         GameObject localAvatar = Instantiate(Resources.Load("NetworkedPlayerLocal")) as GameObject;
-
 
         PhotonView photonView = localAvatar.GetComponent<PhotonView>();
 
@@ -138,6 +150,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
             Debug.Log("Entered instantiate vr avatar event code");
 
             GameObject remoteAvatar = Instantiate(Resources.Load("NetworkedPlayerRemote")) as GameObject;
+
             PhotonView photonView = remoteAvatar.GetComponent<PhotonView>();
             photonView.ViewID = (int)photonEvent.CustomData;
             Debug.Log("Instantiated Remote Avatar with View ID:");
@@ -147,9 +160,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         else if (photonEvent.Code == ChangeSongIndexEventCode)
         {
             Debug.Log("Entered event for change song index");
-            SceneCtrl.GetComponent<SceneController1>().curIndex = (int)photonEvent.CustomData;
+            JukeBoxCtrl.GetComponent<JukeboxScript>().curIndex = (int)photonEvent.CustomData;
+        }
+
+        else if (photonEvent.Code == SendToAudioVisualScene)
+        {
+            Debug.Log("Entered event for changing scene");
+            SceneManager.LoadScene("AudioVisualScene");
         }
     }
+
 
     #endregion
 }

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1E0F63C9-DEE2-3A59-CAD6-50F698E50A44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oculus.VR", "Oculus.VR.csproj", "{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utilities", "PhotonUnityNetworking.Utilities.csproj", "{0A306EF0-136A-3255-B05D-35D60E4CFDE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oculus.VR", "Oculus.VR.csproj", "{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonChat", "PhotonChat.csproj", "{96ED7CC1-7C77-6DA9-69A9-487BBBEE50D2}"
 EndProject
@@ -39,14 +39,14 @@ Global
 		{1E0F63C9-DEE2-3A59-CAD6-50F698E50A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0F63C9-DEE2-3A59-CAD6-50F698E50A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0F63C9-DEE2-3A59-CAD6-50F698E50A44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A306EF0-136A-3255-B05D-35D60E4CFDE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A306EF0-136A-3255-B05D-35D60E4CFDE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A306EF0-136A-3255-B05D-35D60E4CFDE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A306EF0-136A-3255-B05D-35D60E4CFDE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96ED7CC1-7C77-6DA9-69A9-487BBBEE50D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96ED7CC1-7C77-6DA9-69A9-487BBBEE50D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96ED7CC1-7C77-6DA9-69A9-487BBBEE50D2}.Release|Any CPU.ActiveCfg = Release|Any CPU

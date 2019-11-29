@@ -80,14 +80,14 @@
     <Compile Include="Assets\Plugins\Photon\PhotonRealtime\Code\WebRpc.cs" />
     <None Include="Assets\Plugins\Photon\PhotonRealtime\Code\changes-realtime.txt" />
     <None Include="Assets\Plugins\Photon\PhotonRealtime\Code\PhotonRealtime.asmdef" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -284,6 +284,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -298,12 +304,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

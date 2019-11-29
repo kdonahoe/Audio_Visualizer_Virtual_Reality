@@ -6,7 +6,7 @@ using Photon.Chat;
 using Photon.Realtime;
 
 // For use with Photon and SteamVR
-public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
+public class NetworkedPlayer2 : MonoBehaviourPun, IPunObservable
 {
     public GameObject avatar;
 
@@ -27,9 +27,9 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine)
         {
             Debug.Log("Player is mine");
-            playerGlobal = GameObject.Find("OVRPlayerController").transform;
+            playerGlobal = GameObject.Find("PlayerController").transform;
 
-            playerLocal = playerGlobal.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor");
+            playerLocal = playerGlobal.Find("MainCamera/TrackingSpace/CenterEyeAnchor");
 
             lhandPose = GameObject.FindGameObjectWithTag("LHandAnchor").transform;
 
@@ -37,13 +37,13 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
 
             this.transform.SetParent(playerLocal);
             this.transform.localPosition = Vector3.zero;
-            
+
             lhandLocal.transform.SetParent(lhandPose);
             lhandLocal.transform.localPosition = Vector3.zero;
 
             rhandLocal.transform.SetParent(rhandPose);
             rhandLocal.transform.localPosition = Vector3.zero;
-            
+
 
         }
     }

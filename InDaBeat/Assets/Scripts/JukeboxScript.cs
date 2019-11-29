@@ -8,12 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class JukeboxScript : MonoBehaviour
 {
-    public GameObject songDisplay;
+    public GameObject songDisplay, NetMgr;
     private TextMeshProUGUI songName;
     public List<string> songList = new List<string>();
     public Button prevButton, nextButton, selectButton;
     private Button pb, nb, sel;
-    int curIndex;
+    public int curIndex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +35,14 @@ public class JukeboxScript : MonoBehaviour
     void Update()
     {
         songName.text = songList[curIndex];
+        Properties.selectedSong = songName.text;
     }
 
     void nextSongDisplay()
     {
         curIndex = ((curIndex + 1) % songList.Count);
+        NetMgr.GetComponent<NetworkManager>().UpdateSongIndex(curIndex);
+        Debug.Log("Called UpdateSongIndex");
     }
 
     void prevSongDisplay()
@@ -51,12 +55,14 @@ public class JukeboxScript : MonoBehaviour
         {
             curIndex -= 1;
         }
+        NetMgr.GetComponent<NetworkManager>().UpdateSongIndex(curIndex);
+        Debug.Log("Called UpdateSongIndex");
     }
 
     void selectSongDisplay()
     {
-        Properties.selectedSong = songName.text;
-        SceneManager.LoadScene("AudioVisualScene");
+        //SceneManager.LoadScene("AudioVisualScene");
+        NetMgr.GetComponent<NetworkManager>().SendClientsToAudioVisualScene();
     }
 
     void initiateSongList()

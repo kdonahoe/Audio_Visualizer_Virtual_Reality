@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7388261
 Transform:
   m_ObjectHideFlags: 0
@@ -260,12 +260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f3402a2ea5bff4880c0313515240cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oculusUserID: 0
-  Driver: {fileID: 7388262}
+  oculusUserID: 
+  Driver: {fileID: 0}
   EnableBody: 1
   EnableHands: 1
-  EnableBase: 0
-  EnableExpressive: 1
+  EnableBase: 1
+  EnableExpressive: 0
   RecordPackets: 0
   UseSDKPackets: 1
   PacketSettings:
@@ -279,28 +279,18 @@ MonoBehaviour:
   ShowThirdPerson: 0
   LevelOfDetail: 3
   UseTransparentRenderQueue: 1
-  Monochrome_SurfaceShader: {fileID: 4800000, guid: 73f67c4e7bf718b4385aa6b1f8a06591,
-    type: 3}
-  Monochrome_SurfaceShader_SelfOccluding: {fileID: 4800000, guid: 69f342b79d37541489919a19cfd8a924,
-    type: 3}
-  Monochrome_SurfaceShader_PBS: {fileID: 4800000, guid: 5e52aa58207bbf24d8eb8ec969e9ae88,
-    type: 3}
-  Skinshaded_SurfaceShader_SingleComponent: {fileID: 4800000, guid: 36b8b481cf607814a8cec318f0148d63,
-    type: 3}
-  Skinshaded_VertFrag_SingleComponent: {fileID: 4800000, guid: e541f4efed2b34ad3a26c6ba4ac93e54,
-    type: 3}
-  Skinshaded_VertFrag_CombinedMesh: {fileID: 4800000, guid: 37d2b8298f61cd2469465fc36108675d,
-    type: 3}
-  Skinshaded_Expressive_SurfaceShader_SingleComponent: {fileID: 4800000, guid: 93b478e926e46654889c1c20f87f253f,
-    type: 3}
-  Skinshaded_Expressive_VertFrag_SingleComponent: {fileID: 4800000, guid: 2fe0ac0c2373ab143a6f21314b785d7d,
-    type: 3}
-  Skinshaded_Expressive_VertFrag_CombinedMesh: {fileID: 4800000, guid: 0600fe59b0c043344affd1d1368b9ef2,
-    type: 3}
-  Loader_VertFrag_CombinedMesh: {fileID: 4800000, guid: 822f5e641dc5dd54ca9555b727b3277f,
-    type: 3}
-  EyeLens: {fileID: 4800000, guid: 8392f54e79937ed4bb1b692a143dc02b, type: 3}
-  ControllerShader: {fileID: 4800000, guid: 28729c6ae5a33b04cb2f7956f3f3fc01, type: 3}
+  Monochrome_SurfaceShader: {fileID: 0}
+  Monochrome_SurfaceShader_SelfOccluding: {fileID: 0}
+  Monochrome_SurfaceShader_PBS: {fileID: 0}
+  Skinshaded_SurfaceShader_SingleComponent: {fileID: 0}
+  Skinshaded_VertFrag_SingleComponent: {fileID: 0}
+  Skinshaded_VertFrag_CombinedMesh: {fileID: 0}
+  Skinshaded_Expressive_SurfaceShader_SingleComponent: {fileID: 0}
+  Skinshaded_Expressive_VertFrag_SingleComponent: {fileID: 0}
+  Skinshaded_Expressive_VertFrag_CombinedMesh: {fileID: 0}
+  Loader_VertFrag_CombinedMesh: {fileID: 0}
+  EyeLens: {fileID: 0}
+  ControllerShader: {fileID: 0}
   CanOwnMicrophone: 1
   EnableLaughter: 1
   MouthAnchor: {fileID: 0}
@@ -492,7 +482,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2018807963}
-        m_MethodName: ResumeSong
+        m_MethodName: PauseMenuChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1517,7 +1507,7 @@ CharacterController:
   m_GameObject: {fileID: 351177568}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
@@ -2187,7 +2177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a9c50de96f6d04386957f4741ac65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingSpace: {fileID: 1148841462}
+  trackingSpace: {fileID: 0}
   joyPadClickButton: 8192
   performSphereCastForGazepointer: 0
   matchNormalOnPhysicsColliders: 0
@@ -2203,7 +2193,56 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_AllowActivationOnMobileDevice: 1
+  m_AllowActivationOnMobileDevice: 0
+--- !u!1 &541169229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 541169231}
+  - component: {fileID: 541169230}
+  m_Layer: 0
+  m_Name: OVR Pointer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &541169230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541169229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12283131fa5724f44b343883ae474072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackingSpace: {fileID: 1148841462}
+  linePointer: {fileID: 3357640060134351930}
+  gazePointer: {fileID: 0}
+  rayDrawDistance: 500
+  gazeDrawDistance: 3
+  activeController: 0
+--- !u!4 &541169231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541169229}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596748214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,8 +2599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12283131fa5724f44b343883ae474072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingSpace: {fileID: 1148841462}
-  linePointer: {fileID: 3357640060134351930}
+  trackingSpace: {fileID: 0}
+  linePointer: {fileID: 0}
   gazePointer: {fileID: 0}
   rayDrawDistance: 500
   gazeDrawDistance: 3
@@ -3654,7 +3693,7 @@ GameObject:
   - component: {fileID: 1149191375}
   m_Layer: 0
   m_Name: LeftHandAnchor
-  m_TagString: Untagged
+  m_TagString: LHandAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3687,7 +3726,7 @@ GameObject:
   - component: {fileID: 1149194843}
   m_Layer: 0
   m_Name: RightHandAnchor
-  m_TagString: Untagged
+  m_TagString: RHandAnchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7467,14 +7506,14 @@ MonoBehaviour:
   otherObjects: []
   currentColor: 
   cubeScaler: 2
-  cubeThreshold: 20
-  blueSpark: {fileID: 5755162785260126720, guid: 7932054a4761867439b246e28ce0742f,
+  cubeThreshold: 3
+  blueSpark: {fileID: 5755162785260126720, guid: 2af13c3cc1d5eb0488f7c7ca721dc6da,
     type: 3}
   pinkSpark: {fileID: 5755162785260126720, guid: de82443aeffda594eaebadf864379200,
     type: 3}
-  orangeSpark: {fileID: 5755162785260126720, guid: f142f0c4279ba77409d3393c5d536497,
+  orangeSpark: {fileID: 5755162785260126720, guid: 9b243095de0ab6645962ce68ba2df4af,
     type: 3}
-  greenSpark: {fileID: 5755162785260126720, guid: 97e261dd92514954a9da5c5e68f75869,
+  greenSpark: {fileID: 5755162785260126720, guid: 8e3b563392baca549a4f8873c09b10c6,
     type: 3}
   particleCount: 4
   particleMinSize: 0.05
@@ -7482,7 +7521,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 129616, guid: 55141490e6ade7d4f9c7305f94a39943, type: 3}
   ground: {fileID: 1755397238}
   snow: {fileID: 4714661788417560756, guid: 711ffd4f8fb182044b9ae0ec373cef03, type: 3}
-  particlePrefab: {fileID: 5755162785260126720, guid: f142f0c4279ba77409d3393c5d536497,
+  particlePrefab: {fileID: 5755162785260126720, guid: 9b243095de0ab6645962ce68ba2df4af,
     type: 3}
   menuPanel: {fileID: 1233021501}
   circleCenter: {fileID: 1912780461}
@@ -7492,8 +7531,8 @@ MonoBehaviour:
   songName: {fileID: 1771247536}
   asteroid: {fileID: 173668, guid: 9be308f429389d04ca0921bfe16c3166, type: 3}
   pauseMenu: {fileID: 1539277465}
-  resumeButton: {fileID: 0}
-  backJukeBoxButton: {fileID: 0}
+  resumeButton: {fileID: 45733945}
+  backJukeBoxButton: {fileID: 1053293400}
   lyrics: {fileID: 1281459204}
   lyricsDepth: 4.5
   menuDepth: 1
@@ -7505,7 +7544,7 @@ MonoBehaviour:
   skyboxBlue: {fileID: 2100000, guid: cfd760b7d164ff749ba8785d0ca857d7, type: 2}
   skyboxPink: {fileID: 2100000, guid: ef833912b86f38143b531fb4f9f7ec97, type: 2}
   skyboxMulti: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
-  tree: {fileID: 1483114160548464, guid: a47d7ad739a48614babdcba6106ead5f, type: 3}
+  tree: {fileID: 3038708719439947991, guid: eba1748e429a0c145943fceacac9f0cd, type: 3}
   multiObjects: {fileID: 2015594146}
   pinkObjects: {fileID: 1028488186}
   greenObjects: {fileID: 458255466}

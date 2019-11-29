@@ -316,6 +316,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
@@ -324,12 +330,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>C:/Users/njcin/Documents/GitHub/project-2019-team-6-in-da-beat/InDaBeat/Assets/Plugins/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -687,18 +687,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Oculus.VR.Editor.csproj">
-      <Project>{A41DCD7D-01EF-8A5C-EC32-ED7C6F015FD2}</Project>
-      <Name>Oculus.VR.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Oculus.VR.Scripts.Editor.csproj">
-      <Project>{1F785F4C-F925-D77E-E164-B971D4FD5F9B}</Project>
-      <Name>Oculus.VR.Scripts.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}</Project>
-      <Name>Oculus.VR</Name>
-    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{8A9954EF-9399-C4A3-09CD-5029BB8D50B0}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
@@ -718,6 +706,18 @@
     <ProjectReference Include="PhotonUnityNetworking.csproj">
       <Project>{DFADDEB4-704A-52C2-6664-B0B50ADEEB0F}</Project>
       <Name>PhotonUnityNetworking</Name>
+    </ProjectReference>
+    <ProjectReference Include="Oculus.VR.Editor.csproj">
+      <Project>{A41DCD7D-01EF-8A5C-EC32-ED7C6F015FD2}</Project>
+      <Name>Oculus.VR.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Oculus.VR.Scripts.Editor.csproj">
+      <Project>{1F785F4C-F925-D77E-E164-B971D4FD5F9B}</Project>
+      <Name>Oculus.VR.Scripts.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Oculus.VR.csproj">
+      <Project>{8AE60EEA-355E-34CC-5D70-7B2148EEEB14}</Project>
+      <Name>Oculus.VR</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonChat.csproj">
       <Project>{96ED7CC1-7C77-6DA9-69A9-487BBBEE50D2}</Project>

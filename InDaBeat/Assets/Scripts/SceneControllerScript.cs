@@ -9,10 +9,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using ExitGames.Client.Photon;
+using Photon.Pun;
+using Photon.Realtime;
 
 [RequireComponent(typeof(AudioSource))]
-public class SceneControllerScript : MonoBehaviour
+public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, IOnEventCallback, IConnectionCallbacks
 {
+    string _room = "AudioVisualScene";
+
+    public const byte InstantiateVrAvatarEventCode = 1; 
+    public const byte PlayMusicEventCode = 2;
+    public const byte PauseMusicEventCode = 3;
+    public const byte RewindMusicEventCode = 4;
+    public const byte FastFowardEventCode = 5;
+    public const byte PauseMenuChangeEventCode = 6;
+    public const byte SendClientsToJukeBoxEventCode = 7;
+    public const byte SetWhiteEventCode = 8;
+    public const byte SetOrangeEventCode = 9;
+    public const byte SetGreenEventCode = 10;
+    public const byte SetBlueEventCode = 11;
+    public const byte SetPinkEventCode = 12;
+    public const byte SetMultiEventCode = 13;
+
     public OVRInput.Controller controller;
     public GameObject canvas;
 
@@ -50,6 +69,7 @@ public class SceneControllerScript : MonoBehaviour
     Vector3 offset;
     public float lyricsDepth, menuDepth;
     public float lyricsHeight, menuHeight;
+    private bool pauseMenuUp;
 
     AudioSource audioSource;
 
@@ -70,8 +90,44 @@ public class SceneControllerScript : MonoBehaviour
     public GameObject whiteObjects;
     int counter = 0;
 
+    GameObject localAvatar;
+
+    bool joinedRoom;
+
+    public override void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+        Debug.Log("NetworkManager2 enabled.");
+    }
+
+    public override void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
+
     void Start()
     {
+        // Initially, pause menu is not displayed
+        pauseMenuUp = false;
+
+        if (PhotonNetwork.IsConnected)
+        {
+            RoomOptions roomOptions = new RoomOptions() { };
+            PhotonNetwork.JoinOrCreateRoom(_room, roomOptions, TypedLobby.Default);
+        }
+        else
+        {
+            Debug.Log("Trying to connect using settings");
+            if (PhotonNetwork.ConnectUsingSettings())
+            {
+                Debug.Log("Success connecting using Photon settings!");
+            }
+            else
+            {
+                Debug.LogError("Failed to connect using Photon settings");
+            }
+        }
+
         currentColor = "multi";
         offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
@@ -94,8 +150,75 @@ public class SceneControllerScript : MonoBehaviour
             cubes[i] = cubeInstance;
             cubeList.Add(cubeInstance);
         }
+    }
 
-        
+    public override void OnConnectedToMaster() //Callback function for when the first connection is established successfully.
+    {
+        Debug.Log("Connected to master");
+
+        RoomOptions roomOptions = new RoomOptions() { };
+        PhotonNetwork.JoinOrCreateRoom(_room, roomOptions, TypedLobby.Default);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        joinedRoom = true;
+
+        // This is just a sphere that represents the player so we can easily see other players
+        Debug.Log("Trying to instantiate player prefab");
+        //PhotonNetwork.Instantiate("NetworkedPlayerLocal", Vector3.zero, Quaternion.identity, 0);
+        GameObject localAvatar = Instantiate(Resources.Load("NetworkedPlayerLocal2")) as GameObject;
+
+
+        PhotonView photonView = localAvatar.GetComponent<PhotonView>();
+
+        if (PhotonNetwork.AllocateViewID(photonView))
+        {
+            Debug.Log("View ID allocated");
+            RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+            {
+                CachingOption = EventCaching.AddToRoomCache,
+                Receivers = ReceiverGroup.Others
+            };
+
+            PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, photonView.ViewID, raiseEventOptions, SendOptions.SendReliable);
+        }
+        else
+        {
+            Debug.LogError("Failed to allocate a ViewId.");
+
+            Destroy(localAvatar);
+        }
+    }
+
+    public override void OnFriendListUpdate(List<FriendInfo> friendList)
+    {
+    }
+
+    public override void OnCreatedRoom()
+    {
+        Debug.Log("Created room");
+
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("Create room failed.");
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("Join room failed.");
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log("Join random room failed.");
+    }
+
+    public override void OnLeftRoom()
+    {
+        joinedRoom = false;
     }
 
     Vector3 circleUp(Vector3 center, float radius, float ang)
@@ -110,6 +233,12 @@ public class SceneControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If B button pressed, change whether pause menu is up or down
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            PauseMenuChange();
+        }
+
         circleCenter.transform.rotation = Camera.main.transform.rotation;
 
         //sets song lyrics
@@ -157,9 +286,7 @@ public class SceneControllerScript : MonoBehaviour
                 }
             }
         }
-        counter++;
-       
-        
+        counter++; 
     }
 
     //gets the average height of the spectrum
@@ -220,12 +347,32 @@ public class SceneControllerScript : MonoBehaviour
     //the following are methods called by the controller menu
     public void playMusic()
     {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(PlayMusicEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void playMusicProcess()
+    {
         audioSource.Play();
         playButton.SetActive(false);
         pauseButton.SetActive(true);
     }
 
     public void pauseMusic()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(PauseMusicEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void pauseMusicProcess()
     {
         audioSource.Pause();
        // preFabScale = 100;
@@ -235,10 +382,30 @@ public class SceneControllerScript : MonoBehaviour
 
     public void rewindMusic()
     {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(RewindMusicEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void rewindMusicProcess()
+    {
         audioSource.time -= 10;
     }
 
     public void fastForwardMusic()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(FastFowardEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void fastForwardMusicProcess()
     {
         audioSource.time += 10;
     }
@@ -257,19 +424,59 @@ public class SceneControllerScript : MonoBehaviour
 
     }
 
-    public void ResumeSong()
+    public void PauseMenuChange()
     {
-        audioSource.Play();
-        pauseMenu.SetActive(false);
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(PauseMenuChangeEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    public void PauseMenuChangeProcess()
+    {
+        if (pauseMenuUp)
+        {
+            pauseMenu.SetActive(false);
+            playMusic();
+        }
+        else if (!pauseMenuUp)
+        {
+            pauseMenu.SetActive(true);
+            pauseMusic();
+        }
+
+        pauseMenuUp = !pauseMenuUp;
     }
 
     public void backToJukeBox()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SendClientsToJukeBoxEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void backToJukeBoxProcess()
     {
         SceneManager.LoadScene("SongSelector");
     }
 
     //sets all cubes in the spectrum white
+
     public void setWhite()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SetWhiteEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+    void setWhiteProcess()
     {
         currentColor = "white";
         whiteObjects.active = true;
@@ -296,6 +503,16 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setOrange()
     {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SetOrangeEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void setOrangeProcess()
+    {
         currentColor = "orange";
 
         whiteObjects.active = false;
@@ -318,6 +535,16 @@ public class SceneControllerScript : MonoBehaviour
     }
 
     public void setGreen()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SetGreenEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void setGreenProcess()
     {
         currentColor = "green";
 
@@ -343,6 +570,16 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setBlue()
     {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SetBlueEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    void setBlueProcess()
+    {
         currentColor = "blue";
 
         whiteObjects.active = false;
@@ -365,8 +602,16 @@ public class SceneControllerScript : MonoBehaviour
         RenderSettings.skybox = skyboxBlue;
     }
 
-
     public void setPink()
+    {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SetPinkEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+    void setPinkProcess()
     {
         currentColor = "pink";
 
@@ -393,6 +638,16 @@ public class SceneControllerScript : MonoBehaviour
 
     public void setMulti()
     {
+        RaiseEventOptions raiseEventOptions = new RaiseEventOptions
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent(SetMultiEventCode, null, raiseEventOptions, SendOptions.SendReliable);
+    }
+
+    public void setMultiProcess()
+    {
         currentColor = "multi";
 
         pinkObjects.active = false;
@@ -416,5 +671,67 @@ public class SceneControllerScript : MonoBehaviour
         RenderSettings.skybox = skyboxMulti;
     }
 
-    
+    public void OnEvent(EventData photonEvent)
+    {
+        if (photonEvent.Code == InstantiateVrAvatarEventCode)
+        {
+            Debug.Log("Entered instantiate vr avatar event code");
+
+            GameObject remoteAvatar = Instantiate(Resources.Load("NetworkedPlayerRemote2")) as GameObject;
+            PhotonView photonView = remoteAvatar.GetComponent<PhotonView>();
+            photonView.ViewID = (int)photonEvent.CustomData;
+            Debug.Log("Instantiated Remote Avatar with View ID:");
+            Debug.Log(photonView.ViewID);
+        }
+        else if (photonEvent.Code == PlayMusicEventCode) 
+        {
+            playMusicProcess();
+        }
+        else if (photonEvent.Code == PauseMusicEventCode)
+        {
+            pauseMusicProcess();
+        }
+        else if (photonEvent.Code == RewindMusicEventCode)
+        {
+            rewindMusicProcess();
+        }
+        else if (photonEvent.Code == FastFowardEventCode)
+        {
+            fastForwardMusicProcess();
+        }
+        else if (photonEvent.Code == PauseMenuChangeEventCode)
+        {
+            PauseMenuChangeProcess();
+        }
+        else if (photonEvent.Code == SendClientsToJukeBoxEventCode)
+        {
+            backToJukeBoxProcess();
+        }
+        else if (photonEvent.Code == SetWhiteEventCode)
+        {
+            setWhiteProcess();
+        }
+        else if (photonEvent.Code == SetOrangeEventCode)
+        {
+            setOrangeProcess();
+        }
+        else if (photonEvent.Code == SetGreenEventCode)
+        {
+            setGreenProcess();
+        }
+        else if (photonEvent.Code == SetBlueEventCode)
+        {
+            setBlueProcess();
+        }
+        else if (photonEvent.Code == SetPinkEventCode)
+        {
+            setPinkProcess();
+        }
+        else if (photonEvent.Code == SetMultiEventCode)
+        {
+            setMultiProcess();
+        }
+
+    }
+
 }
