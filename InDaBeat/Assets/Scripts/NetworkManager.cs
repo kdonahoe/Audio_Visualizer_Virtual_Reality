@@ -30,7 +30,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
     }
 
     void Start()
-    {   
+    {
         if (PhotonNetwork.IsConnected)
         {
             RoomOptions roomOptions = new RoomOptions() { };
@@ -140,7 +140,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
 
     public override void OnLeftRoom()
     {
-        joinedRoom = false;
+        SceneManager.LoadScene("AudioVisualScene");
     }
 
     public void OnEvent(EventData photonEvent)
@@ -166,7 +166,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         else if (photonEvent.Code == SendToAudioVisualScene)
         {
             Debug.Log("Entered event for changing scene");
-            SceneManager.LoadScene("AudioVisualScene");
+            PhotonNetwork.LeaveRoom();
         }
     }
 

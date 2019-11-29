@@ -218,7 +218,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
 
     public override void OnLeftRoom()
     {
-        joinedRoom = false;
+        SceneManager.LoadScene("SongSelector");
     }
 
     Vector3 circleUp(Vector3 center, float radius, float ang)
@@ -462,7 +462,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
 
     void backToJukeBoxProcess()
     {
-        SceneManager.LoadScene("SongSelector");
+        PhotonNetwork.LeaveRoom();
     }
 
     //sets all cubes in the spectrum white
