@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 817990663334775662}
   - component: {fileID: 7976853989419353155}
   - component: {fileID: 3276327304548672508}
+  - component: {fileID: 4830807498831725984}
   m_Layer: 0
   m_Name: NetworkedPlayerRemote
   m_TagString: Untagged
@@ -92,6 +93,24 @@ MonoBehaviour:
   lhandPose: {fileID: 0}
   rhandLocal: {fileID: 6962462904372657917}
   rhandPose: {fileID: 0}
+--- !u!114 &4830807498831725984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817990663334775656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logLevel: 1
+  recorderInUse: {fileID: 0}
+  speakerInUse: {fileID: 0}
+  AutoCreateRecorderIfNotFound: 0
+  UsePrimaryRecorder: 1
+  SetupDebugSpeaker: 1
 --- !u!1 &4787013615814981457
 GameObject:
   m_ObjectHideFlags: 0

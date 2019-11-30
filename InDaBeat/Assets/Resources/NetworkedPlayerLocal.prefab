@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3768471304492226707}
   - component: {fileID: 5883144718415255486}
   - component: {fileID: 6687949066006260618}
+  - component: {fileID: 3805437276459755791}
   m_Layer: 0
   m_Name: NetworkedPlayerLocal
   m_TagString: Untagged
@@ -92,6 +93,24 @@ MonoBehaviour:
   lhandPose: {fileID: 0}
   rhandLocal: {fileID: 6884307957041048832}
   rhandPose: {fileID: 0}
+--- !u!114 &3805437276459755791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768471304492226709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logLevel: 1
+  recorderInUse: {fileID: 0}
+  speakerInUse: {fileID: 0}
+  AutoCreateRecorderIfNotFound: 0
+  UsePrimaryRecorder: 1
+  SetupDebugSpeaker: 1
 --- !u!1 &5289304309301787851
 GameObject:
   m_ObjectHideFlags: 0

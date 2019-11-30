@@ -12,6 +12,8 @@ using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
+using Photon.Voice.Unity;
+using UnityEngine.Android;
 
 [RequireComponent(typeof(AudioSource))]
 public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, IOnEventCallback, IConnectionCallbacks
@@ -34,6 +36,10 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
 
     public OVRInput.Controller controller;
     public GameObject canvas;
+
+    GameObject dialogue;
+    public Recorder recorder;
+    public TextMeshProUGUI debugObject;
 
     //audio visualization
     int numCubes = 256;
@@ -128,6 +134,19 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
             }
         }
 
+#if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            Permission.RequestUserPermission(Permission.Microphone);
+            dialogue = new GameObject();
+        }
+#endif
+
+        // Add microphone input
+        recorder.SourceType = Recorder.InputSourceType.Microphone;
+        recorder.MicrophoneType = Recorder.MicType.Unity;
+        recorder.StartRecording();
+
         currentColor = "multi";
         offset = canvas.transform.position - Camera.main.transform.position;
         audioSource = GetComponent<AudioSource>();
@@ -221,6 +240,21 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
         SceneManager.LoadScene("SongSelector");
     }
 
+    void OnGUI()
+    {
+#if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            dialogue.AddComponent<PermissionsRationaleDialog>();
+            return;
+        }
+        else if (dialogue != null)
+        {
+            Destroy(dialogue);
+        }
+#endif
+    }
+
     Vector3 circleUp(Vector3 center, float radius, float ang)
     {
         Vector3 pos;
@@ -233,6 +267,45 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
     // Update is called once per frame
     void Update()
     {
+
+        string newText = "";
+        newText += recorder.LevelMeter.CurrentAvgAmp + "|" + recorder.LevelMeter.CurrentPeakAmp + Environment.NewLine;
+        newText += "Is Recording: " + recorder.IsRecording + Environment.NewLine;
+        newText += "Is ActiveAndEnabled: " + recorder.isActiveAndEnabled + Environment.NewLine;
+        newText += "Is CurrentlyTransmitting: " + recorder.IsCurrentlyTransmitting + Environment.NewLine;
+        newText += "Is Initialized: " + recorder.IsInitialized + Environment.NewLine;
+        newText += "PhotonMicrophoneDeviceId: " + recorder.PhotonMicrophoneDeviceId + System.Environment.NewLine;
+        newText += "PhotonMicrophoneEnumerator Count: " + Recorder.PhotonMicrophoneEnumerator.Count + Environment.NewLine;
+        var enumerator = Recorder.PhotonMicrophoneEnumerator;
+        string trying = "";
+        for (int i = 0; i < enumerator.Count; i++)
+        {
+            trying = enumerator.IDAtIndex(i) + "";
+            recorder.PhotonMicrophoneDeviceId = enumerator.IDAtIndex(i);
+            recorder.IsRecording = true;
+            recorder.TransmitEnabled = true;
+            break;
+        }
+
+        newText += "Trying to set mic: " + trying + Environment.NewLine;
+        if (Microphone.devices == null || Microphone.devices.Length == 0)
+        {
+            newText += "No microphone device detected! " + Environment.NewLine;
+        }
+        else if (Microphone.devices.Length == 1)
+        {
+            newText += string.Format("Mic.: {0}", Microphone.devices[0]) + Environment.NewLine;
+        }
+        else
+        {
+            newText += string.Format("Multi.Mic.Devices:\n0. {0} (active)\n", Microphone.devices[0]) + Environment.NewLine;
+            for (int i = 1; i < Microphone.devices.Length; i++)
+            {
+                newText += string.Format("{0}. {1}\n", i, Microphone.devices[i]) + Environment.NewLine;
+            }
+        }
+        debugObject.text = newText;
+
         // If B button pressed, change whether pause menu is up or down
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
