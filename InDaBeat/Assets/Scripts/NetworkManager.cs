@@ -65,8 +65,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         }
 #endif
 
-        recorder.SourceType = Recorder.InputSourceType.Microphone;
-        recorder.MicrophoneType = Recorder.MicType.Unity;
         recorder.StartRecording();
     }
 
@@ -87,7 +85,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
 
     void Update()
     {
-        
+        if (!recorder.IsRecording)
+        {
+            recorder.RestartRecording();
+            recorder.StartRecording();
+        }
         string newText = "";
         newText += recorder.LevelMeter.CurrentAvgAmp + "|" + recorder.LevelMeter.CurrentPeakAmp + Environment.NewLine;
         newText += "Is Recording: " + recorder.IsRecording + Environment.NewLine;
@@ -125,7 +127,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
             }
         }
         debugObject.text = newText;
-        
+
     }
 
     public void UpdateSongIndex(int newIndex)
@@ -168,7 +170,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         // This is just a sphere that represents the player so we can easily see other players
         Debug.Log("Trying to instantiate player prefab");
         //PhotonNetwork.Instantiate("NetworkedPlayerLocal", Vector3.zero, Quaternion.identity, 0);
-        GameObject localAvatar = Instantiate(Resources.Load("NetworkedPlayerLocal")) as GameObject;
+        GameObject localAvatar = Instantiate(Resources.Load("AJ Local")) as GameObject;
 
         PhotonView photonView = localAvatar.GetComponent<PhotonView>();
 
@@ -218,7 +220,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("AudioVisualScene");
+        SceneManager.LoadScene("Karaoke Room");
     }
 
     public void OnEvent(EventData photonEvent)
@@ -227,7 +229,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         {
             Debug.Log("Entered instantiate vr avatar event code");
 
-            GameObject remoteAvatar = Instantiate(Resources.Load("NetworkedPlayerRemote")) as GameObject;
+            GameObject remoteAvatar = Instantiate(Resources.Load("AJ Remote")) as GameObject;
 
             PhotonView photonView = remoteAvatar.GetComponent<PhotonView>();
             photonView.ViewID = (int)photonEvent.CustomData;

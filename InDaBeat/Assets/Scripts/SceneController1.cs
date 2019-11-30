@@ -49,7 +49,7 @@ public class SceneController1 : MonoBehaviour
     void selectSongDisplay()
     {
         Properties.selectedSong = songName.text;
-        SceneManager.LoadScene("AudioVisualScene");
+        SceneManager.LoadScene("Karaoke Room");
     }
 
     void initiateSongList()

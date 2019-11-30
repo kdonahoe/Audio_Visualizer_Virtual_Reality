@@ -1297,6 +1297,7 @@ GameObject:
   - component: {fileID: 280192334}
   - component: {fileID: 280192333}
   - component: {fileID: 280192332}
+  - component: {fileID: 280192335}
   m_Layer: 0
   m_Name: Voice
   m_TagString: Untagged
@@ -1320,7 +1321,7 @@ MonoBehaviour:
   voiceDetection: 0
   voiceDetectionThreshold: 0.01
   voiceDetectionDelayMs: 500
-  unityMicrophoneDevice: Internal Microphone (Synaptics SmartAudio HD)
+  unityMicrophoneDevice: External Microphone Headphone (Shadow Virtual Audio Device)
   photonMicrophoneDeviceId: 0
   interestGroup: 0
   debugEchoMode: 0
@@ -1330,7 +1331,7 @@ MonoBehaviour:
   samplingRate: 48000
   frameDuration: 10000
   bitrate: 30000
-  sourceType: 1
+  sourceType: 0
   microphoneType: 0
   audioClip: {fileID: 0}
   loopAudioClip: 0
@@ -1389,6 +1390,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &280192335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280192331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3986deb98168394684c41606a9495af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logLevel: 1
+  boostValue: 0
+  amplificationFactor: 5
 --- !u!1 &283758216
 GameObject:
   m_ObjectHideFlags: 0

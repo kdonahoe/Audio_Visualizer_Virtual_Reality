@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SongSelector.unity
     guid: 5f1756d051813f140b312d58a5a7dd58
   - enabled: 1
-    path: Assets/Scenes/AudioVisualScene.unity
+    path: Assets/Scenes/Karaoke Room.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/Scenes/Music Room.unity

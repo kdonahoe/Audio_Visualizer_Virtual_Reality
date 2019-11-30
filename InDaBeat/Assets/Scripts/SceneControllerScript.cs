@@ -143,8 +143,6 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
 #endif
 
         // Add microphone input
-        recorder.SourceType = Recorder.InputSourceType.Microphone;
-        recorder.MicrophoneType = Recorder.MicType.Unity;
         recorder.StartRecording();
 
         currentColor = "multi";
@@ -186,7 +184,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
         // This is just a sphere that represents the player so we can easily see other players
         Debug.Log("Trying to instantiate player prefab");
         //PhotonNetwork.Instantiate("NetworkedPlayerLocal", Vector3.zero, Quaternion.identity, 0);
-        GameObject localAvatar = Instantiate(Resources.Load("NetworkedPlayerLocal2")) as GameObject;
+        GameObject localAvatar = Instantiate(Resources.Load("AJ Local")) as GameObject;
 
 
         PhotonView photonView = localAvatar.GetComponent<PhotonView>();
@@ -267,8 +265,13 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
     // Update is called once per frame
     void Update()
     {
+        if (!recorder.IsRecording)
+        {
+            recorder.RestartRecording();
+            recorder.StartRecording();
+        }
 
-        string newText = "";
+       /* string newText = "";
         newText += recorder.LevelMeter.CurrentAvgAmp + "|" + recorder.LevelMeter.CurrentPeakAmp + Environment.NewLine;
         newText += "Is Recording: " + recorder.IsRecording + Environment.NewLine;
         newText += "Is ActiveAndEnabled: " + recorder.isActiveAndEnabled + Environment.NewLine;
@@ -304,7 +307,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
                 newText += string.Format("{0}. {1}\n", i, Microphone.devices[i]) + Environment.NewLine;
             }
         }
-        debugObject.text = newText;
+        debugObject.text = newText;*/
 
         // If B button pressed, change whether pause menu is up or down
         if (OVRInput.GetDown(OVRInput.Button.Two))
@@ -750,7 +753,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
         {
             Debug.Log("Entered instantiate vr avatar event code");
 
-            GameObject remoteAvatar = Instantiate(Resources.Load("NetworkedPlayerRemote2")) as GameObject;
+            GameObject remoteAvatar = Instantiate(Resources.Load("AJ Remote")) as GameObject;
             PhotonView photonView = remoteAvatar.GetComponent<PhotonView>();
             photonView.ViewID = (int)photonEvent.CustomData;
             Debug.Log("Instantiated Remote Avatar with View ID:");
