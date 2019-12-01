@@ -48,22 +48,39 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
         }
     }
 
+    void Update()
+    {
+        if (photonView.IsMine)
+        {
+            Quaternion rot = new Quaternion(0, Camera.main.transform.rotation.y, 0, Camera.main.transform.rotation.w);
+            this.transform.rotation = rot;
+        }
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         Debug.Log("Serializing view");
         if (stream.IsWriting)
         {
+            Vector3 pos = new Vector3(playerGlobal.position.x, 0.05f, playerGlobal.position.z);
             stream.SendNext(playerGlobal.position);
-            stream.SendNext(playerGlobal.rotation);
-            stream.SendNext(playerLocal.localPosition);
-            stream.SendNext(playerLocal.localRotation);
+            Quaternion rot = new Quaternion(0, playerGlobal.rotation.y, 0, playerGlobal.rotation.w);
+            stream.SendNext(rot);
+            Vector3 pos1 = new Vector3(playerLocal.localPosition.x, 0.05f, playerLocal.localPosition.z);
+            stream.SendNext(pos1);
+            Quaternion rot2 = new Quaternion(0, playerLocal.localRotation.y, 0, playerLocal.localRotation.w);
+            stream.SendNext(rot2);
         }
         else
         {
-            this.transform.position = (Vector3)stream.ReceiveNext();
-            this.transform.rotation = (Quaternion)stream.ReceiveNext();
-            avatar.transform.localPosition = (Vector3)stream.ReceiveNext();
-            avatar.transform.localRotation = (Quaternion)stream.ReceiveNext();
+            Vector3 pos = (Vector3)stream.ReceiveNext();
+            this.transform.position = new Vector3(pos.x, 0.05f, pos.z);
+            Quaternion rot = (Quaternion)stream.ReceiveNext();
+            this.transform.rotation = new Quaternion(0, rot.y, 0, rot.w);
+            Vector3 pos1 = (Vector3)stream.ReceiveNext();
+            avatar.transform.localPosition = new Vector3(pos1.x, 0.05f, pos1.z);
+            Quaternion rot1 = (Quaternion)stream.ReceiveNext();
+            avatar.transform.localRotation = new Quaternion(0, rot1.y, 0, rot1.w);
         }
     }
 }

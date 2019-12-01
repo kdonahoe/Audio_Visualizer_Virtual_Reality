@@ -1556,7 +1556,7 @@ GameObject:
   - component: {fileID: 351177569}
   - component: {fileID: 351177574}
   m_Layer: 0
-  m_Name: PlayerController
+  m_Name: OVRPlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2567,7 +2567,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.08e-43, y: 1.26882e-40, z: 9.08e-43, w: -9.516399e-11}
+  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 3e-45}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3931,7 +3931,7 @@ GameObject:
   - component: {fileID: 1154686320}
   - component: {fileID: 114473267242338868}
   m_Layer: 0
-  m_Name: MainCamera
+  m_Name: OVRCameraRig
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
