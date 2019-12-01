@@ -53,7 +53,9 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine)
         {
             Quaternion rot = new Quaternion(0, Camera.main.transform.rotation.y, 0, Camera.main.transform.rotation.w);
+            Vector3 pos = new Vector3(Camera.main.transform.position.x, 0.05f, Camera.main.transform.position.z);
             this.transform.rotation = rot;
+            this.transform.position = pos;
         }
     }
 
