@@ -19,6 +19,7 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
     public GameObject rhandLocal;
     public Transform rhandPose;
 
+    float scaler;
 
     void Start()
     {
@@ -43,8 +44,8 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
 
             rhandLocal.transform.SetParent(rhandPose);
             rhandLocal.transform.localPosition = Vector3.zero;
-            
 
+            scaler = avatar.transform.localScale.y / Camera.main.transform.position.y;
         }
     }
 
@@ -56,6 +57,10 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
             Vector3 pos = new Vector3(Camera.main.transform.position.x, 0.05f, Camera.main.transform.position.z);
             this.transform.rotation = rot;
             this.transform.position = pos;
+
+            Vector3 scal = new Vector3(avatar.transform.localScale.x, scaler * Camera.main.transform.position.y, avatar.transform.localScale.z);
+            avatar.transform.localScale = scal;
+
         }
     }
 
@@ -72,6 +77,7 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
             stream.SendNext(pos1);
             Quaternion rot2 = new Quaternion(0, playerLocal.localRotation.y, 0, playerLocal.localRotation.w);
             stream.SendNext(rot2);
+            stream.SendNext(avatar.transform.localScale);
         }
         else
         {
@@ -83,6 +89,7 @@ public class NetworkedPlayer : MonoBehaviourPun, IPunObservable
             avatar.transform.localPosition = new Vector3(pos1.x, 0.05f, pos1.z);
             Quaternion rot1 = (Quaternion)stream.ReceiveNext();
             avatar.transform.localRotation = new Quaternion(0, rot1.y, 0, rot1.w);
+            avatar.transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }
