@@ -90,43 +90,43 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
             recorder.RestartRecording();
             recorder.StartRecording();
         }
-        string newText = "";
-        newText += recorder.LevelMeter.CurrentAvgAmp + "|" + recorder.LevelMeter.CurrentPeakAmp + Environment.NewLine;
-        newText += "Is Recording: " + recorder.IsRecording + Environment.NewLine;
-        newText += "Is ActiveAndEnabled: " + recorder.isActiveAndEnabled + Environment.NewLine;
-        newText += "Is CurrentlyTransmitting: " + recorder.IsCurrentlyTransmitting + Environment.NewLine;
-        newText += "Is Initialized: " + recorder.IsInitialized + Environment.NewLine;
-        newText += "PhotonMicrophoneDeviceId: " + recorder.PhotonMicrophoneDeviceId + System.Environment.NewLine;
-        newText += "PhotonMicrophoneEnumerator Count: " + Recorder.PhotonMicrophoneEnumerator.Count + Environment.NewLine;
-        var enumerator = Recorder.PhotonMicrophoneEnumerator;
-        string trying = "";
-        for (int i = 0; i < enumerator.Count; i++)
-        {
-            trying = enumerator.IDAtIndex(i) + "";
-            recorder.PhotonMicrophoneDeviceId = enumerator.IDAtIndex(i);
-            recorder.IsRecording = true;
-            recorder.TransmitEnabled = true;
-            break;
-        }
+        //string newText = "";
+        //newText += recorder.LevelMeter.CurrentAvgAmp + "|" + recorder.LevelMeter.CurrentPeakAmp + Environment.NewLine;
+        //newText += "Is Recording: " + recorder.IsRecording + Environment.NewLine;
+        //newText += "Is ActiveAndEnabled: " + recorder.isActiveAndEnabled + Environment.NewLine;
+        //newText += "Is CurrentlyTransmitting: " + recorder.IsCurrentlyTransmitting + Environment.NewLine;
+        //newText += "Is Initialized: " + recorder.IsInitialized + Environment.NewLine;
+        //newText += "PhotonMicrophoneDeviceId: " + recorder.PhotonMicrophoneDeviceId + System.Environment.NewLine;
+        //newText += "PhotonMicrophoneEnumerator Count: " + Recorder.PhotonMicrophoneEnumerator.Count + Environment.NewLine;
+        //var enumerator = Recorder.PhotonMicrophoneEnumerator;
+        //string trying = "";
+        //for (int i = 0; i < enumerator.Count; i++)
+        //{
+        //    trying = enumerator.IDAtIndex(i) + "";
+        //    recorder.PhotonMicrophoneDeviceId = enumerator.IDAtIndex(i);
+        //    recorder.IsRecording = true;
+        //    recorder.TransmitEnabled = true;
+        //    break;
+        //}
 
-        newText += "Trying to set mic: " + trying + Environment.NewLine;
-        if (Microphone.devices == null || Microphone.devices.Length == 0)
-        {
-            newText += "No microphone device detected! " + Environment.NewLine;
-        }
-        else if (Microphone.devices.Length == 1)
-        {
-            newText += string.Format("Mic.: {0}", Microphone.devices[0]) + Environment.NewLine;
-        }
-        else
-        {
-            newText += string.Format("Multi.Mic.Devices:\n0. {0} (active)\n", Microphone.devices[0]) + Environment.NewLine;
-            for (int i = 1; i < Microphone.devices.Length; i++)
-            {
-                newText += string.Format("{0}. {1}\n", i, Microphone.devices[i]) + Environment.NewLine;
-            }
-        }
-        debugObject.text = newText;
+        //newText += "Trying to set mic: " + trying + Environment.NewLine;
+        //if (Microphone.devices == null || Microphone.devices.Length == 0)
+        //{
+        //    newText += "No microphone device detected! " + Environment.NewLine;
+        //}
+        //else if (Microphone.devices.Length == 1)
+        //{
+        //    newText += string.Format("Mic.: {0}", Microphone.devices[0]) + Environment.NewLine;
+        //}
+        //else
+        //{
+        //    newText += string.Format("Multi.Mic.Devices:\n0. {0} (active)\n", Microphone.devices[0]) + Environment.NewLine;
+        //    for (int i = 1; i < Microphone.devices.Length; i++)
+        //    {
+        //        newText += string.Format("{0}. {1}\n", i, Microphone.devices[i]) + Environment.NewLine;
+        //    }
+        //}
+        //debugObject.text = newText;
 
     }
 
