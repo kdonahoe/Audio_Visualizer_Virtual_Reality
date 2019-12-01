@@ -6593,6 +6593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1a50ad6c3658142af70019a0eeba00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avatarPrefabs:
+  - {fileID: 4918553842994715200, guid: d26e963a051ac314598db220ca2d3a95, type: 3}
   controller: 0
   canvas: {fileID: 707775305}
   recorder: {fileID: 280192332}

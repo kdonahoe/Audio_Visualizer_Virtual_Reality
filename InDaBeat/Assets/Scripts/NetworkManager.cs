@@ -16,7 +16,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
     public const byte InstantiateVrAvatarEventCode = 1; // example code, change to any value between 1 and 199
     public const byte ChangeSongIndexEventCode = 2;
     public const byte SendToAudioVisualScene = 3;
-
+    public List<GameObject> avatarPrefabs = new List<GameObject>();
     public GameObject JukeBoxCtrl;
     GameObject localAvatar;
 
@@ -228,8 +228,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks, IMatchmakingCallbacks, 
         if (photonEvent.Code == InstantiateVrAvatarEventCode)
         {
             Debug.Log("Entered instantiate vr avatar event code");
-
-            GameObject remoteAvatar = Instantiate(Resources.Load("AJ Remote")) as GameObject;
+            GameObject remoteAvatar = Instantiate(Resources.Load(avatarPrefabs[UnityEngine.Random.Range(0, avatarPrefabs.Count)].name)) as GameObject;
 
             PhotonView photonView = remoteAvatar.GetComponent<PhotonView>();
             photonView.ViewID = (int)photonEvent.CustomData;

@@ -2170,6 +2170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cab7f354befa2a4ea73f6b7472c94eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avatarPrefabs:
+  - {fileID: 4918553842994715200, guid: d26e963a051ac314598db220ca2d3a95, type: 3}
   JukeBoxCtrl: {fileID: 1636317316}
   debugObject: {fileID: 1198767899}
   recorder: {fileID: 1518015888}

@@ -34,6 +34,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
     public const byte SetPinkEventCode = 12;
     public const byte SetMultiEventCode = 13;
 
+    public List<GameObject> avatarPrefabs = new List<GameObject>();
     public OVRInput.Controller controller;
     public GameObject canvas;
 
@@ -753,7 +754,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
         {
             Debug.Log("Entered instantiate vr avatar event code");
 
-            GameObject remoteAvatar = Instantiate(Resources.Load("AJ Remote")) as GameObject;
+            GameObject remoteAvatar = Instantiate(Resources.Load(avatarPrefabs[UnityEngine.Random.Range(0, avatarPrefabs.Count)].name)) as GameObject;
             PhotonView photonView = remoteAvatar.GetComponent<PhotonView>();
             photonView.ViewID = (int)photonEvent.CustomData;
             Debug.Log("Instantiated Remote Avatar with View ID:");
