@@ -55,7 +55,6 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
     public int cubeThreshold;
 
     //sparks
-    public GameObject blueSpark, pinkSpark, orangeSpark, greenSpark;
     public int particleCount;
     public float particleMinSize;
     public float particleMaxSize;
@@ -358,7 +357,7 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
                     {
                        float scale = UnityEngine.Random.Range(particleMinSize*100, particleMaxSize*100);
                        asteroid.transform.localScale = new Vector3(scale, scale, scale);
-                       Instantiate(asteroid, cubes[j].transform.position + new Vector3(0,5,0), Quaternion.identity);
+                       Instantiate(asteroid, cubes[j].transform.position + new Vector3(0,25,0), Quaternion.identity);
                     }
                 }
             }

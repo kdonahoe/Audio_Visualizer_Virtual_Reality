@@ -2243,7 +2243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524698002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
@@ -2567,7 +2567,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 3e-45}
+  m_BoundingSphereOverride: {x: 0, y: 4e-45, z: 5.633e-42, w: 6e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2613,7 +2613,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707775305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -7629,15 +7629,7 @@ MonoBehaviour:
   otherObjects: []
   currentColor: 
   cubeScaler: 2
-  cubeThreshold: 3
-  blueSpark: {fileID: 5755162785260126720, guid: 2af13c3cc1d5eb0488f7c7ca721dc6da,
-    type: 3}
-  pinkSpark: {fileID: 5755162785260126720, guid: de82443aeffda594eaebadf864379200,
-    type: 3}
-  orangeSpark: {fileID: 5755162785260126720, guid: 9b243095de0ab6645962ce68ba2df4af,
-    type: 3}
-  greenSpark: {fileID: 5755162785260126720, guid: 8e3b563392baca549a4f8873c09b10c6,
-    type: 3}
+  cubeThreshold: 45
   particleCount: 4
   particleMinSize: 0.05
   particleMaxSize: 0.2
