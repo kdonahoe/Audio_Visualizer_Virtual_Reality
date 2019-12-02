@@ -433,7 +433,15 @@ public class SceneControllerScript : MonoBehaviourPunCallbacks, IMatchmakingCall
 
     void playMusicProcess()
     {
-        audioSource.Play();
+        if (audioSource.time > 0)
+        {
+            audioSource.UnPause();
+
+        }
+        else
+        {
+            audioSource.Play();
+        }
         playButton.SetActive(false);
         pauseButton.SetActive(true);
     }
