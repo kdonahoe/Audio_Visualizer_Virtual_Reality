@@ -23,7 +23,7 @@ At the start of the game, single or multiple users can enter the same jukebox ro
 **Performance Area: Sing a song, surrounded by visualizations**
 The main scene is the performance area, where users plays in a match zone which is surrounded by a circular audio visualization. The audio visualization represents the spectrum data of the song chosen as sampled continuously by a Fast Fourier Transform. Lyrics of the selected song are displayed in the world space such that it maintains alignment with the VR camera. Users can further control the scene by being able to stop, play, fast forward, and rewind the song. In addition, the user can customize the environment and corresponding audio visualizations through the vertical color control panel, providing a harmonized and immersive experience (some of these scenes are depicted to the left). These actions affect all users in the same scene.
 
-![](scene.gif | width=100)
+![](scene.gif)
 
 **[Check out the video](https://drive.google.com/file/d/1S3_tEi53Kg-UI-6Hu0NEoKyvvc1i0VB8/view)**
 
