@@ -27,4 +27,4 @@ The main scene is the performance area, where users plays in a match zone which 
 
 **[Check out the video](https://drive.google.com/file/d/1S3_tEi53Kg-UI-6Hu0NEoKyvvc1i0VB8/view)**
 
-Build by running the apk located in the build folder!
+Build by running the apk located in the build folder
