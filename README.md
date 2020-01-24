@@ -11,8 +11,9 @@
 In Da Beat is a Virtual Reality project (deployed to Oculus Quest) aimed at bringing the complete karaoke experience to users in a full variety of settings, wherever they may be. Players take the stage in a host of different environments to sing along to a wide selection of songs while viewing an audio visualization. The project incorporates a networking feature that connects multiple headsets to the same performance stage.
 
 ### Check it out
-**[Poster](https://docs.google.com/presentation/d/118qABW4NBgdCurJ_EGoFjkd4SSAMM5n6ZQK0HRWbV1w/preview?slide=id.g75a8ee670e_0_260)**
-**[Video](https://drive.google.com/file/d/1S3_tEi53Kg-UI-6Hu0NEoKyvvc1i0VB8/view)**
+**[Final Poster](https://docs.google.com/presentation/d/118qABW4NBgdCurJ_EGoFjkd4SSAMM5n6ZQK0HRWbV1w/preview?slide=id.g75a8ee670e_0_260)**
+
+**[Video Demonstration](https://drive.google.com/file/d/1S3_tEi53Kg-UI-6Hu0NEoKyvvc1i0VB8/view)**
 
 ### The Experience
 Zoom-out view of the main performance scene. When user(s) enter this scene, they are placed in the center of the audio visualization (which is the multicolored circle)
