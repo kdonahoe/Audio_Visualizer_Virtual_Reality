@@ -3,9 +3,9 @@
 # Group project - In Da Beat - Fall 2019
 
 ### Group Members:
-- [Katie Donahoe, kd459@cornell.edu, kdonahoe]
-- [Nathan Cinnamond, nc532@cornell.edu, njcinnamond]
-- [Phil Asmar, pye4@cornell.edu, philasmar]
+- Katie Donahoe, kd459@cornell.edu, kdonahoe
+- Nathan Cinnamond, nc532@cornell.edu, njcinnamond
+- Phil Asmar, pye4@cornell.edu, philasmar
 
 ### Project Description:
 In Da Beat is a Virtual Reality project (deployed to Oculus Quest) aimed at bringing the complete karaoke experience to users in a full variety of settings, wherever they may be. Players take the stage in a host of different environments to sing along to a wide selection of songs while viewing an audio visualization. The project incorporates a networking feature that connects multiple headsets to the same performance stage.
